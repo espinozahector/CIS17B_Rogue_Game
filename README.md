@@ -37,3 +37,4 @@
   - Wizard
   - Warrior
 *New Ideas*
+  -
