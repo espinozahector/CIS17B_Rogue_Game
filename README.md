@@ -22,6 +22,7 @@
       - Hit points?
       - Damage multiplier?
   - equipment slots (no inventory)
+    - Different equipment slots for each class?
   - loot 
 * ?New Ideas?
   - 
