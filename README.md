@@ -32,3 +32,6 @@
 - Grid based movement or free move?
   - free move
 - Art style/source?
+
+*Let's just throw all title propositions Here*
+  - We can then vote for the best one
