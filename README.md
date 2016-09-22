@@ -12,11 +12,15 @@
   - track score(levels cleared, mobs killed, etc)
     - How? total points? points per level and kill? per pick up/loot?
   - permanent death
-  - difficult as rooms progress
+  - difficulty increases as rooms/floors progress
   - as player increases in level. enemies grow in difficulty
     - How is player level increasing?
-      - loot? kills? level completion?
+      - loot? kills? level completion? experience points?
       - Does it tie in with score tracking?
+    - What increases automatically as players gain levels?
+      - Character stats?
+      - Hit points?
+      - Damage multiplier?
   - equipment slots (no inventory)
   - loot 
 * ?New Ideas?
@@ -27,3 +31,4 @@
   - real-time
 - Grid based movement or free move?
   - free move
+- Art style/source?
