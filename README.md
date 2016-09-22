@@ -20,4 +20,6 @@
   
 *Questions that need answering*
 - Real-time or Turn-based?
+  - real-time
 - Grid based movement or free move?
+  - free move
