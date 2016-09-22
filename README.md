@@ -36,5 +36,6 @@
   - We can then vote for the best one
   - Wizard
   - Warrior
+
 *New Ideas*
   -
