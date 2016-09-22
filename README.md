@@ -33,12 +33,9 @@
 - Art style/source?
 
 *Let's just throw all title propositions Here*
-
-    - Character classes
+- Character classes
       - Wizard
       - Warrior
     - Game Titles
-      - 
-
 *New Ideas*
   - 
