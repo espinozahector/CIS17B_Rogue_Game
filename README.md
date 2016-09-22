@@ -17,7 +17,7 @@
     - How is player level increasing?
       - loot? kills? level completion? experience points?
       - Does it tie in with score tracking?
-    - What increases automatically as players gain levels?
+    - What increases automatically as players gain levels? (this is a great question!)
       - Character stats?
       - Hit points?
       - Damage multiplier?
