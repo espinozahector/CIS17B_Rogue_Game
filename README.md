@@ -1,12 +1,12 @@
 # CIS17B_Rogue_Game
 * RCC Fall 2016 
 * Ideas
-  - Predefined rooms, randomly put together each game
+  - Predefined rooms, randomly put together each game.
+    - loot drop locations are static, loot is random.
     - or - Randomly generate rooms. X*Y size and place objects randomly at (x,y).
-  - diablo-esq loot
-  - loot drop locations are static, loot is random
+    - Could mix the two styles.
+  - diablo-esque loot.
   - 3 classic classes (loot based on class choice)
-    - Warrior, Wizard, Ranger/Rogue types? If multiplayer, do we add Cleric as a fourth class?
   - muliplayer networked, co-op
   - top down 2d
   - track score(levels cleared, mobs killed, etc)
@@ -31,11 +31,13 @@
 - Grid based movement or free move?
   - free move
 - Art style/source?
+  - Sprite-based assuming 2D. Who is making sprites or should we find a free to use tileset?
 
 *Let's just throw all title propositions Here*
   - Character classes
-      - Wizard
-      - Warrior
+    - Warrior                   (High melee damage, high armor/HP)
+    - Wizard                    (High ranged damage, low armor/hp)
+    - Rogue/Ranger/Scoundrel?   (Medium melee/ranged damage, medium armor/hp)
   - Game Titles
 
 *New Ideas*
