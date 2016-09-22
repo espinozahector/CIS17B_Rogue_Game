@@ -34,8 +34,11 @@
 
 *Let's just throw all title propositions Here*
   - We can then vote for the best one
-  - Wizard
-  - Warrior
+    -Character Titles
+      - Wizard
+      - Warrior
+    - Game Titles
+      - 
 
 *New Ideas*
   - 
