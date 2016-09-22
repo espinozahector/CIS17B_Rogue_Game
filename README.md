@@ -23,9 +23,7 @@
       - Damage multiplier?
   - equipment slots (no inventory)
     - Different equipment slots for each class?
-  - loot 
-* ?New Ideas?
-  - 
+  - loot
   
 *Questions that need answering*
 - Real-time or Turn-based?
@@ -38,3 +36,4 @@
   - We can then vote for the best one
   - Wizard
   - Warrior
+*New Ideas*
