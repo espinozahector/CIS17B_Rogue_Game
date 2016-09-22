@@ -19,7 +19,7 @@
       - Does it tie in with score tracking?
   - equipment slots (no inventory)
   - loot 
-* ???New Ideas???
+* ?New Ideas?
   - 
   
 *Questions that need answering*
