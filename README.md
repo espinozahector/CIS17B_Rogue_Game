@@ -38,4 +38,4 @@
   - Warrior
 
 *New Ideas*
-  -
+  - 
