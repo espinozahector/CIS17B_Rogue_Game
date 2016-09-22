@@ -10,9 +10,13 @@
   - muliplayer networked, co-op
   - top down 2d
   - track score(levels cleared, mobs killed, etc)
+    - How? total points? points per level and kill? per pick up/loot?
   - permanent death
   - difficult as rooms progress
   - as player increases in level. enemies grow in difficulty
+    - How is player level increasing?
+      - loot? kills? level completion?
+      - Does it tie in with score tracking?
   - equipment slots (no inventory)
   - loot 
 * ???New Ideas???
