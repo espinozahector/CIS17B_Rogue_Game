@@ -32,7 +32,7 @@ private:
 
 public:
 	
-	BaseCharacter();
+	BaseCharacter(int, int, int, float);
 	~BaseCharacter();
 	void setHitPoints(int);
 	int getHitPoints() { return hitPoints };
