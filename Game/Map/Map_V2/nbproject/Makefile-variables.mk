@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=map_v1
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/map_v1
+CND_ARTIFACT_NAME_Debug=map_v2
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/map_v2
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=mapv1.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/mapv1.tar
+CND_PACKAGE_NAME_Debug=mapv2.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/mapv2.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=map_v1
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/map_v1
+CND_ARTIFACT_NAME_Release=map_v2
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/map_v2
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=mapv1.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/mapv1.tar
+CND_PACKAGE_NAME_Release=mapv2.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/mapv2.tar
 #
 # include compiler specific variables
 #
