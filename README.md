@@ -3,8 +3,7 @@
 * Ideas
   - Predefined rooms, randomly put together each game.
     - loot drop locations are static, loot is random.
-    - or - Randomly generate rooms. X*Y size and place objects randomly at (x,y).
-    - Could mix the two styles.
+    - Map style reminiscent of The Legend of Zelda, Binding of Isaac, Smash TV, etc.
   - diablo-esque loot.
   - 3 classic classes (loot based on class choice)
   - muliplayer networked, co-op
