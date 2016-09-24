@@ -32,7 +32,7 @@ Cols::Cols(int newCols, int newRows)
 	{
 		level[i] = new Row(szCols);
 	}
-	this->setStrt(5, 5);
+	this->setStrt(newRows /2, newCols /2);
 	this->buildMap();
 }
 
