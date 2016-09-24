@@ -1,4 +1,9 @@
-// programmer(s): Curt Burdette
+/*
+file: BaseCharacter.h
+author: Curt Burdette
+created 9/24/2016 12:37a
+purpose: starting point for character class base
+*/
 
 #ifndef BASECHARACTER_H
 #define BASECHARACTER_H
@@ -30,14 +35,14 @@ public:
 	BaseCharacter();
 	~BaseCharacter();
 	void setHitPoints(int);
-	void getHitPoints();
+	int getHitPoints() { return hitPoints };
 	void setAttackDamage(int);
-	void getAttackDamage();
+	int getAttackDamage() { return attackDamage };
 	void setArmorRating(int);
-	void getArmorRating();
+	int getArmorRating() { return armorRating };
 	bool isDead() { return hitPoints >= 0; };
 	void setCritChance(float);
-	void getCritChance();
+	float getCritChance() { return critChance };
 
 };
 #endif // !BASECHARACTER_H
