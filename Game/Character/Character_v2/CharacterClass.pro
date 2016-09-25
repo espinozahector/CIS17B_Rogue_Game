@@ -13,7 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    character.cpp
+    character.cpp \
+    player.cpp
 
 HEADERS  += \
-    character.h
+    character.h \
+    player.h \
+    inv.h

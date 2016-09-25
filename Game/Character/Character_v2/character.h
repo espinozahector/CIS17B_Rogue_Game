@@ -1,6 +1,9 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
+#include <string>
+
+using namespace std;
 
 //Base character class
 class Character
@@ -10,10 +13,13 @@ class Character
         int cDamage; //Character damage
         int cArmor; //Character Armor class
         int cCrit; //Character crit chance
+        string cName; //Character name
+
     public:
         //Constructors & Deconstructor
         Character();
-        Character(int, int, int, float);
+        Character(int, int, int, int);
+        Character(string, int, int, int, int);
         ~Character();
 
         //Health set/get
@@ -32,9 +38,15 @@ class Character
         void setCrit(int);
         int getCrit(){return cCrit;}
 
-        //Action functions
-        int attack();
-        void calcDmg(int);
+        //Combat Functions
+        int attack(); //Calculates attack
+        int getHit(int); //Calculates health loss
+        void attackChar(Character &target);//Calculates attack on target character
+
+        //Name set/get
+        void setName(string name);
+        string getName(){return cName;}
+
 };
 
 #endif // CHARACTER_H

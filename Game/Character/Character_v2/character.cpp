@@ -1,20 +1,32 @@
 #include "character.h"
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
+
+using namespace std;
 
 Character::Character()
 {
+    //Default stats
     cHealth = 0;
     cDamage = 0;
     cArmor = 0;
-    cCrit = 0.0;
+    cCrit = 0;
 }
 
-Character::Character(int health, int damage, int armor, float crit){
-    cHealth = health;
-    cDamage = damage;
-    cArmor = armor;
-    cCrit = crit;
+Character::Character(int health, int damage, int armor, int crit){
+    setHp(health);
+    setDmg(damage);
+    setAC(armor);
+    setCrit(crit);
+}
+
+Character::Character(string name, int health, int damage, int armor, int crit){
+    setName(name);
+    setHp(health);
+    setDmg(damage);
+    setAC(armor);
+    setCrit(crit);
 }
 
 Character::~Character(){
@@ -51,19 +63,33 @@ void Character::setCrit(int crit){
 }
 
 int Character::attack(){
+    //Calculates attack
     srand(time(0));
     int dmg = cDamage;
     int crit = rand()%101;
 
     if(crit < cCrit){
-        dmg *= 1.2;
+        dmg *= 1.5;
     }
 
     return dmg;
 }
 
-void Character::calcDmg(int damage){
+int Character::getHit(int damage){
+    //Calculates damage on hit
     int health = cHealth;
-    health -= (damage - cArmor);
+    int dmg = damage - cArmor;
+    health -= dmg;
     setHp(health);
+    return dmg;
+}
+
+void Character::attackChar(Character &target){
+    //Outputs and calculates target damage
+    cout << cName <<  " attacks and deals " << target.getHit(this->attack())
+         << " damage to " << target.getName() << endl;
+}
+
+void Character::setName(string name){
+    cName = name;
 }
