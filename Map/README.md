@@ -11,3 +11,4 @@ RCC Fall 2016
     - maybe building 3 - 4 rooms at a time
   - Create "Boss Room" -> just label it for now
   - Create room generator -> doors are important
+  - Start builidng a connection where a player can move on the map
