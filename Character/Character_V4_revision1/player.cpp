@@ -17,10 +17,10 @@ void Player::checkLvl()
 //increase level, Max Exp, health, damage, and armor
 void Player::lvlUp()
 {
-    setLvl(getLvl() += 1);
-    setHp(getHp() += 5);
-    setDmg(getDmg() += 1);
-    setAC(getAC() += 1);
-    setExpMx(getExpMx() += (getLvl() * 100));
+    setLvl(getLvl() + 1);
+    setHp(getHp() + 5);
+    setDmg(getDmg() + 1);
+    setAC(getAC() + 1);
+    setExpMx(getExpMx() + (getLvl() * 100));
 }
 

@@ -10,6 +10,10 @@ addExp() function in player.h
 added levelling declarations to player constructor
 
 Curt Burdette 9/29/16 8:55a
+
+fixed bad code in Player::lvlUp()
+
+Curt Burdette 9/29/16 10:07p
 */
 
 #include <QApplication>
