@@ -8,7 +8,6 @@
 class Player : public Character
 {
     private:
-        int pXpos, pYpos;   //Player coordinates
         int pExp;           //Player current exp
         int pExpMx;         //Player Max exp
 
@@ -17,17 +16,9 @@ class Player : public Character
     public:
         //Constructors
         Player();
-        //Param(x-coor,y-coor,name,health,damage,armor,crit)
-        Player(int,int,string,int,int,int,int);
+        //Param(name,health,damage,armor,crit)
+        Player(string,int,int,int,int);
         ~Player();
-
-        //X coordinate set/get
-        void setX(int);
-        int getX();
-
-        //Y coordinate set/get
-        void setY(int);
-        int getY();
 
         //Experience
         void addExp(int);   //Add exp

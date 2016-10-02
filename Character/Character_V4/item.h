@@ -9,10 +9,13 @@ using namespace std;
 class Item
 {
     private:
+        int xPos, yPos; //Item coordinates
+
         int itemID;     //Item identification #
         int iDamage;    //Item damage
         int iArmor;     //Item Armor
         int iCrit;      //Item crit
+
         string iName;   //Item name
 
     public:

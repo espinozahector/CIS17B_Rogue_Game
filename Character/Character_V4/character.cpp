@@ -5,28 +5,58 @@
 
 using namespace std;
 
-Character::Character()
-{
+Character::Character(){
     //Default stats
-    cHealth = 0;
-    cDamage = 0;
-    cArmor = 0;
-    cCrit = 0;
+    setName("");
+    setHp(0);
+    setDmg(0);
+    setAC(0);
+    setCrit(0);
+
+    //Set player position
+    cXpos = 0;
+    cYpos = 0;
+
+    //Set player speed
+    cVel = 3;
+
+    setCoor(cXpos,cYpos);
 }
 
 Character::Character(int health, int damage, int armor, int crit){
+    //Set player stats
+    setName("");
     setHp(health);
     setDmg(damage);
     setAC(armor);
     setCrit(crit);
+
+    //Set player position
+    cXpos = 0;
+    cYpos = 0;
+
+    //Set player speed
+    cVel = 3;
+
+    setCoor(cXpos,cYpos);
 }
 
 Character::Character(string name, int health, int damage, int armor, int crit){
+    //Set character stats
     setName(name);
     setHp(health);
     setDmg(damage);
     setAC(armor);
     setCrit(crit);
+
+    //Set player position
+    cXpos = 0;
+    cYpos = 0;
+
+    //Set player speed
+    cVel = 3;
+
+    setCoor(cXpos,cYpos);
 }
 
 Character::~Character(){
@@ -60,6 +90,11 @@ void Character::setCrit(int crit){
         cCrit = crit;
     else
         cCrit = 0;
+}
+
+void Character::setCoor(int x, int y){
+    setX(x);
+    setY(y);
 }
 
 int Character::attack(){

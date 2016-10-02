@@ -2,29 +2,28 @@
 #define ENEMY_H
 
 #include "character.h"
+#include "player.h"
 #include "inv.h"
 
 class Enemy : public Character
 {
     private:
-        int eXpos, eYpos;   //Enemy coordinates
         int eExp;           //Enemy experience worth
         Inv *loot;          //Enemy loot drop
+
+        //Movement functions
+        void moveUp();
+        void moveDown();
+        void moveLeft();
+        void moveRight();
+        void idle();
 
     public:
         //Constructor
         Enemy();
-        //*Param(x-coor, y-coor, name, health, dmg, armor, crit)
-        Enemy(int, int, string, int, int, int, int);
+        //*Param(name, health, dmg, armor, crit, exp)
+        Enemy(string, int, int, int, int, int);
         ~Enemy();
-
-        //X-coor get/set
-        void setX(int);
-        int getX();
-
-        //Y-coor get/set
-        void setY(int);
-        int getY();
 
         //Exp get/set
         void setExp(int);
@@ -33,6 +32,11 @@ class Enemy : public Character
         //Items
         void createInv(int);    //Creates inv
         Item dropLoot();        //Returns item drop
+
+        //Combat functions
+        int skill_1();  //Primary skill
+        int skill_2();  //Secondary skill
+        void track(Player&);   //Tracking state
 
         //Render function
         void render();

@@ -10,17 +10,23 @@ using namespace std;
 class Character
 {
     private:
-        int cHealth; //Character health
-        int cDamage; //Character damage
-        int cArmor; //Character Armor class
-        int cCrit; //Character crit chance
-        string cName; //Character name
+        int cXpos;      //Character x position
+        int cYpos;      //Character y position
+
+        int cVel;      //Character velocity
+
+        int cHealth;    //Character health
+        int cDamage;    //Character damage
+        int cArmor;     //Character Armor class
+        int cCrit;      //Character crit chance
+
+        string cName;   //Character name
 
     public:
         //Constructors & Deconstructor
-        Character();
-        Character(int, int, int, int);
-        Character(string, int, int, int, int);
+        Character(); //Blank character
+        Character(int, int, int, int); //(health, damage, armor, crit)
+        Character(string, int, int, int, int); //(name, (see above))
         ~Character();
 
         //Health set/get
@@ -38,6 +44,21 @@ class Character
         //Critical chance set/get
         void setCrit(int);
         int getCrit(){return cCrit;}
+
+        //Sets coordinates
+        void setCoor(int,int);
+
+        //Velocity
+        void setVel(int);
+        int getVel(){return cVel;}
+
+        //X-coor get/set
+        void setX(int x){cXpos = x;}
+        int getX(){return cXpos;}
+
+        //Y-coor get/set
+        void setY(int y){cYpos = y;}
+        int getY(){return cYpos;}
 
         //Combat Functions
         int attack(); //Calculates attack
