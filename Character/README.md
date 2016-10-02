@@ -23,6 +23,15 @@ Player
 	*Retrieves experience from enemy object
   	*Player class can be inherited to create occupation types
   	*Renders object in class
+	
+-Occupations:
+	
+	*Warrior: Melee tank class
+		- Skills: Block & Charge
+	*Mage: AOE damage class
+		- Skills:  
+	*Archer: High single target damage class
+		- Skills:
 
 Enemy
 
