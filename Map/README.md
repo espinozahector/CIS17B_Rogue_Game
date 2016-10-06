@@ -1,6 +1,6 @@
 # CIS17B_Rogue_Game
 <b>RCC Fall 2016</b> 
-<b>* Progress</b>
+* Progress
   * We have come a long way since Map v1! Progress is posted to GitHub. Hector and I have just completed Map V5 without comments tho.
    So if you look through it and are confused, don't fret, i'm here to explain! So the first thing we built was a Level Builder.
    It shows the location of each room. We had to ensure that the rooms were connected and they weren't always clumped. We got that to work
@@ -10,7 +10,7 @@
    If you have any questions, please ask.
    If you believe you can help us make it more efficient, please say something. We will take all ideas in to consideration
    Other than that, We can't wait to implement this in Qt and use actual pixel art
-<b>* To-Do</b>
+* To-Do
   - More efficient level generator
     - maybe building 3 - 4 rooms at a time
   - Create "Boss Room" -> just label it for now
