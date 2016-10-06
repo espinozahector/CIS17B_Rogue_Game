@@ -22,7 +22,10 @@
   - Level manouverability (ease of moving between rooms, not in rooms)
   
 * Added Character Objectives
-  - 
+  - Theme is school
 
 * Added Map Objectives
-  - 
+  - Transfer our current map to QT
+  -
+* Added Multiplayer Objectives
+  - Show score-board real time against other players
