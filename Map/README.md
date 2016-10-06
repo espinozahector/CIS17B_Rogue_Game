@@ -11,6 +11,8 @@
    If you believe you can help us make it more efficient, please say something. We will take all ideas in to consideration
    Other than that, We can't wait to implement this in Qt and use actual pixel art
 * To-Do
+  - Transfer to QT.
+  - Player movement around the map, from room to room.
   - More efficient level generator
     - maybe building 3 - 4 rooms at a time
   - Create "Boss Room" -> just label it for now
