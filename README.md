@@ -26,6 +26,6 @@
 
 * Added Map Objectives
   - Transfer our current map to QT
-  -
+  
 * Added Multiplayer Objectives
   - Show score-board real time against other players
