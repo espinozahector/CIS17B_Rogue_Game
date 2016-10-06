@@ -1,5 +1,5 @@
 # CIS17B_Rogue_Game
-RCC Fall 2016 
+<b>RCC Fall 2016</b> 
 * Progress
   * We have come a long way since Map v1! Progress is posted to GitHub. Hector and I have just completed Map V5 without comments tho.
    So if you look through it and are confused, don't fret, i'm here to explain! So the first thing we built was a Level Builder.
