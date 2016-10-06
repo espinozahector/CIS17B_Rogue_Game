@@ -1,7 +1,7 @@
 # CIS17B_Rogue_Game
 * RCC Fall 2016
 * Due before 10/19/16 
-  --responsibilities, who is in charge of what, what is done, what needs to be done. Need to have menu and interfaces.
+  - responsibilities, who is in charge of what, what is done, what needs to be done. Need to have menu and interfaces.
   --  If I add something that is already complete, add a note at the end of the objective that is complete. Do NOT delete it --
   --  Also, please add anything I missed to the bottom of this README.md file. One of use will sort it in. We just want to make sure everything we put in is a valid objective (we are not trying to undermine anyone. we just want to have people focus valuable time on concrete/set ideas) --
   
