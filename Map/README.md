@@ -10,7 +10,7 @@ RCC Fall 2016
    If you have any questions, please ask.
    If you believe you can help us make it more efficient, please say something. We will take all ideas in to consideration
    Other than that, We can't wait to implement this in Qt and use actual pixel art
- * To-Do
+* To-Do
   - More efficient level generator
     - maybe building 3 - 4 rooms at a time
   - Create "Boss Room" -> just label it for now
