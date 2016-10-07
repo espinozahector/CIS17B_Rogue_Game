@@ -98,16 +98,16 @@ void Level::bldLevel()   // Builds the level / room locations
         {
                 create = false;
         }
-        else if (roomCnt = 3) //if there are 3 surrounding rooms, chances of creating are lower
+        else if (roomCnt == 3) //if there are 3 surrounding rooms, chances of creating are lower
         {
                 int pTemp = rand() % 100 + 1;
-                if (pTemp <= crtPcnt * 90) create = true; // * 90
+                if (pTemp <= crtPcnt * 75) create = true; // * 90
                 else create = false;
         }
-        else if (roomCnt = 2) //if there are 2 surrounding rooms, chances are normal
+        else if (roomCnt == 2) //if there are 2 surrounding rooms, chances are normal
         {
                 int pTemp = rand() % 100 + 1;
-                if (pTemp <= crtPcnt * 125) create = true; // * 125
+                if (pTemp <= crtPcnt * 95) create = true; // * 125
                 else create = false;
         }
         else                 //if there are no surrounding rooms, than build room

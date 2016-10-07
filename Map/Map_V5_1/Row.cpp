@@ -46,3 +46,20 @@ void Row::setEl(int y,int value)
 {
     table[y] = value;
 }
+
+/*
+ * prefabArray[prefabNumber];
+ * prefabArray[0] = oneDoorRight;
+ * prefabArray[1] = oneDoorUP;
+ * 
+ * 
+ * room neighbor check
+ * level[i]->setEl(y,prefabArray[x]);
+ * 
+ * border [top,right,bot,left];
+ * 
+ * temp[0] = 1;
+ *            [1] = 0;
+ * 
+ * if(temp[0] == 1 && temp[0] == 0
+ */             

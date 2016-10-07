@@ -13,8 +13,6 @@
 #include <cstdlib>
 #include <vector>
 #include <cmath>
-#include <map>
-#include <utility>
 using namespace std;
 
 class Row

@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
     }
     cout << endl;
     
-    base.prntSel();
+//    base.prntSel();
     //which room do you want to see?
     //user input -> 4,5
     //output -> room at location from level
