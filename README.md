@@ -1,43 +1,31 @@
 # CIS17B_Rogue_Game
-* RCC Fall 2016 
-* Ideas
-  - Predefined rooms, randomly put together each game.
-    - loot drop locations are static, loot is random.
-    - Map style reminiscent of The Legend of Zelda, Binding of Isaac, Smash TV, etc.
-  - diablo-esque loot.
-  - 3 classic classes (loot based on class choice)
-  - muliplayer networked, co-op
-  - top down 2d
-  - track score(levels cleared, mobs killed, etc)
-    - How? total points? points per level and kill? per pick up/loot?
-  - permanent death
-  - difficulty increases as rooms/floors progress
-  - as player increases in level. enemies grow in difficulty
-    - How is player level increasing?
-      - loot? kills? level completion? experience points?
-      - Does it tie in with score tracking?
-    - What increases automatically as players gain levels? (this is a great question!)
-      - Character stats?
-      - Hit points?
-      - Damage multiplier?
-  - equipment slots (no inventory)
-    - Different equipment slots for each class?
-  - loot
+* RCC Fall 2016
+* Due before 10/19/16 
+  - <b>responsibilities, who is in charge of what, what is done, what needs to be done. Need to have menu and interfaces.</b>
+  - If I add something that is already complete, add a note at the end of the objective that is complete. -- Do NOT delete it --
+  - Also, please add anything I missed to the bottom of this README.md file. One of use will sort it in. We just want to make sure everything we put in is a valid objective (we are not trying to undermine anyone. we just want to have people focus valuable time on concrete/set ideas) --
   
-*Questions that need answering*
-- Real-time or Turn-based?
-  - real-time
-- Grid based movement or free move?
-  - free move
-- Art style/source?
-  - Sprite-based assuming 2D. Who is making sprites or should we find a free to use tileset?
+* Character Objectives
+  - Completed Inventory slots
+  - All Equipment types (even include more than we expect to use)
+  - Attack functions (regular, special, etc...)
+  - Player and Enemy instanciations
+  - Player stats (random vs prefab)
+  - At least 5 different types of enemies to this point
+    - All unique enemy-type stats
+  - Full player leveling (I want to kill an enemy or two and level up my character right now. super simple battle system will suffice)
 
-*Let's just throw all title propositions Here*
-  - Character classes
-    - Warrior                   (High melee damage, high armor/HP)
-    - Wizard                    (High ranged damage, low armor/hp)
-    - Rogue/Ranger/Scoundrel?   (Medium melee/ranged damage, medium armor/hp)
-  - Game Titles
+* Map Objectives
+  - Room Builder (unique vs random)
+  - Lootable objects (rocks, chests, etc...)
+  - Do we need to convert the map to a template?
+  - Level manouverability (ease of moving between rooms, not in rooms)
+  
+* Added Character Objectives
+  - Theme is school
 
-*New Ideas*
-  - 
+* Added Map Objectives
+  - Transfer our current map to QT
+  
+* Added Multiplayer Objectives
+  - Show score-board real time against other players
