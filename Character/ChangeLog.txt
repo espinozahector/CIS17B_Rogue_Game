@@ -1,0 +1,14 @@
+(10/06/2016 11:20pm - Jarone)=====================================
+**Created Char_v5**
+* Sorted Files
+
+**Character Class**
+* Added character max health variable and functions
+* Added character healing function
+
+**Enemy Class**
+* Added enemy stat scaling functions and constant
+
+**EGhost Class**
+* Created EGhost class
+* Inherited Enemy class for functionality
