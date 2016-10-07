@@ -16,6 +16,7 @@ class Character
         int cVel;      //Character velocity
 
         int cHealth;    //Character health
+        int cHealthMx;  //Character max health
         int cDamage;    //Character damage
         int cArmor;     //Character Armor class
         int cCrit;      //Character crit chance
@@ -28,6 +29,10 @@ class Character
         Character(int, int, int, int); //(health, damage, armor, crit)
         Character(string, int, int, int, int); //(name, (see above))
         ~Character();
+
+        //Max health set/get
+        void setHpMx(int);
+        int getHpMx(){return cHealthMx;}
 
         //Health set/get
         void setHp(int);
@@ -64,6 +69,7 @@ class Character
         int attack(); //Calculates attack
         int getHit(int); //Calculates health loss
         void attackChar(Character &target);//Calculates attack on target character
+        void heal(int);//Restores char health
         bool isDead(){return cHealth < 1;}//returns death flag
 
         //Name set/get

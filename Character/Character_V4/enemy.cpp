@@ -38,6 +38,22 @@ Item Enemy::dropLoot(){
     //return loot->getItem(index);        //Returns random item
 }
 
+void Enemy::scaleUp(){
+    //Scales stats up
+    setHpMx(getHpMx()+(getHpMx()*SCALE));
+    setDmg(getDmg()+(getDmg()*SCALE));
+    setAC(getAC()+(getAC()*SCALE));
+    setCrit(getCrit()+(getCrit()*SCALE));
+}
+
+void Enemy::scaleDown(){
+    //Scales stats down
+    setHpMx(getHpMx()-(getHpMx()*SCALE));
+    setDmg(getDmg()-(getDmg()*SCALE));
+    setAC(getAC()-(getAC()*SCALE));
+    setCrit(getCrit()-(getCrit()*SCALE));
+}
+
 int Enemy::skill_1(){
    //Normal attack
     return attack();
@@ -53,7 +69,7 @@ void Enemy::track(Player& player){
     if(!player.isDead()){
         int action = rand()%10;
 
-        if(action > 2){
+        if(action > 1){
             //Move towards player coordinates
             if(this->getY() > player.getY()){
                 //Player above
@@ -74,9 +90,9 @@ void Enemy::track(Player& player){
             }
         }
         else{
+            //Go idle
             idle();
         }
-
     }
     else{
         //Become idle

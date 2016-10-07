@@ -11,6 +11,8 @@ class Enemy : public Character
         int eExp;           //Enemy experience worth
         Inv *loot;          //Enemy loot drop
 
+        const float SCALE = 0.3;   //Enemy stat scaling
+
         //Movement functions
         void moveUp();
         void moveDown();
@@ -32,6 +34,10 @@ class Enemy : public Character
         //Items
         void createInv(int);    //Creates inv
         Item dropLoot();        //Returns item drop
+
+        //Scale enemy stats
+        void scaleUp();
+        void scaleDown();
 
         //Combat functions
         int skill_1();  //Primary skill

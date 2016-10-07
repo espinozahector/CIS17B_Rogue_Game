@@ -17,11 +17,13 @@ SOURCES += main.cpp \
     player.cpp \
     enemy.cpp \
     item.cpp \
-    inv.cpp
+    inv.cpp \
+    eghost.cpp
 
 HEADERS  += \
     character.h \
     player.h \
     enemy.h \
     item.h \
-    inv.h
+    inv.h \
+    eghost.h
