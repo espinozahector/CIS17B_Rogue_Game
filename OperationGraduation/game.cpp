@@ -61,5 +61,11 @@ Game::Game(QWidget *parent)
         }
     }
 
+    //add player
+    player = new Player();
+    player->setPos(480,270);
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player->setFocus();
+    scene->addItem(player);
 
 }

@@ -8,12 +8,15 @@
 //User Libraries
 #include "tile.h"
 #include "map.h"
+#include "player.h"
 
 class Game : public QGraphicsView{
 public:
     Game(QWidget *parent=0);
 
     QGraphicsScene *scene;
+
+    Player *player;
 
 };
 
