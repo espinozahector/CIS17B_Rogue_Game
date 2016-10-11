@@ -15,9 +15,10 @@
  */
 
 /*
- *  Upgrades:
+ *  Need to be Fixed:
  *  map builder can be more efficient "when picking rooms, choose rooms that are suitable" - BrandEn
  *      - in level.cpp
+ *  Bounds for character are wrong, due to the window being resized and placing the map on the bottom left.
  */
 //System Libraries
 #include <QApplication>
