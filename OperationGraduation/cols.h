@@ -1,0 +1,29 @@
+/*
+ * File:   Cols.h
+ * Author: Hector and victor
+ * Created on September 24, 2016
+ * Purpose:
+ */
+
+#ifndef COLS_H
+#define COLS_H
+
+#include "Row.h"
+
+class Cols : public Row
+{
+private:
+    int szCols;         // size of columns
+    int szRows;         // size of rows
+public:
+    Row **level;        // 2-D array to construct where rooms are
+    Cols();             // Default Constructor
+    Cols(int,int);      //Constructor with rows and columns parameter
+    ~Cols();            //Destructor
+    int getSzCols() {return szCols;}  // Get Column size
+    int getSzRows() {return szRows;}  // Get Rows size
+    bool getData(int,int);          // Get the data from the level array
+    void setEl(int,int);
+};
+
+#endif // COLS_H
