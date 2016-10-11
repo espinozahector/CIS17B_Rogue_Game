@@ -18,7 +18,7 @@ void Tile::design(int x, int y)
     }else if(x==15 || y==8){
      setPixmap(QPixmap(":/tiles/wall.png"));
     }else if(val==1){
-     setPixmap(QPixmap(":/tiles/floor.png"));
+     setPixmap(QPixmap(":/tiles/ClassFloor2.jpg"));
     }else if(val==2){
      setPixmap(QPixmap(":/tiles/obstacle.png"));
     }else{

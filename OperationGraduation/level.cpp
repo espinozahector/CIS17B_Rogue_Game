@@ -47,7 +47,7 @@ void Level::bldLevel()   // Builds the level / room locations
     int index;              // index to grab a random room
     bool create;            // decides to create a room or not
     int times=0;            // test of number of calculations
-    float crtPcnt = 0.25f;  // Create Percentage
+    float crtPcnt = 0.15f;  // Create Percentage
     int roomCnt;            // counts the surrounding rooms
 
     do
@@ -94,7 +94,7 @@ void Level::bldLevel()   // Builds the level / room locations
         else if (roomCnt == 2) //if there are 2 surrounding rooms, chances are normal
         {
                 float pTemp = rand();
-                if (pTemp <= crtPcnt * 2) create = true; // * 125 is safe
+                if (pTemp <= crtPcnt * 4) create = true; // * 125 is safe
                 else create = false;
         }
         else                 //if there are no surrounding rooms, than build room
@@ -109,6 +109,7 @@ void Level::bldLevel()   // Builds the level / room locations
 //            cout << "XorY " << XorY << endl;
 //            cout << "PosOrNeg " << PosOrNeg << endl;
 
+            //can be more efficient
             if(XorY == 1) // Change x
             {
                 if(PosOrNeg == 1)//right

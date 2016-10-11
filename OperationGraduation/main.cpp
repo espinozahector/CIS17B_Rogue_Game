@@ -13,6 +13,12 @@
  *                                 including surrounding grid for the wall
  *
  */
+
+/*
+ *  Upgrades:
+ *  map builder can be more efficient "when picking rooms, choose rooms that are suitable" - BrandEn
+ *      - in level.cpp
+ */
 //System Libraries
 #include <QApplication>
 #include <iostream>
@@ -29,13 +35,13 @@ Game *game;
 //Execution Begins Here
 int main(int argc, char *argv[])
 {
+    srand(static_cast<unsigned int> (time(0)));
     //Begin qt execution
     QApplication a(argc, argv);
 
     game = new Game();
 
     game->show();
-
 
     //Exit Stage Right
     return a.exec();

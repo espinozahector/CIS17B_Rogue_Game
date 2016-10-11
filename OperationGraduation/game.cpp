@@ -3,10 +3,10 @@
 
 
 
-Game::Game(QWidget *parent)
+Game::Game(QWidget *parent) : QGraphicsView(parent)
 {
     //set random seed
-    srand(static_cast<unsigned int> (time(0)));
+//    srand(static_cast<unsigned int> (time(0)));
 
     //create the map
     Map base(9,9);

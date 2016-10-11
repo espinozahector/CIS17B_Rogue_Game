@@ -8,5 +8,7 @@
         <file>floor.png</file>
         <file>obstacle.png</file>
         <file>wall.png</file>
+        <file>ClassFloor.jpg</file>
+        <file>ClassFloor2.jpg</file>
     </qresource>
 </RCC>
