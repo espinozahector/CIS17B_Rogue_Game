@@ -7,7 +7,7 @@
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
     //set graphic
-    setPixmap(QPixmap(":/images/snow.png"));
+    setPixmap(QPixmap(":/images/characterBase.png"));
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
