@@ -26,11 +26,11 @@ Player
 	
 -Occupations:
 	
-	*Warrior: Melee tank class
-		- Skills: Block & Charge
-	*Mage: AOE damage class
+	*Music Major: High single target damage ranged class
+		- Skills: 
+	*Jock: Melee tank class
 		- Skills:  
-	*Archer: High single target damage class
+	*Cs Major: AOE Mage class
 		- Skills:
 
 Enemy
