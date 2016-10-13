@@ -27,13 +27,13 @@ void Tile::design(int x, int y)
     {
         setPixmap(QPixmap(":/tiles/Left_door.jpg"));
     }
-    else if(x == 15 && y ==4)
+    else if(x == 14 && y ==4)
     {
         setPixmap(QPixmap(":/tiles/Right_door.jpg"));
     }
 
     //SETS everything else
-    else if(x == 0 || x == 15)
+    else if(x == 0 || x == 14)
     {
         setPixmap(QPixmap(":/tiles/side_wall.jpg"));
     }

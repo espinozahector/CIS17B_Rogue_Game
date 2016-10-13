@@ -25,7 +25,7 @@ Map::Map(int rows, int cols) : Room(rows,cols)
         {
             if(level[x]->getEl(y))
             {
-                roomMap[i++] = new Room(x,y,9,16);
+                roomMap[i++] = new Room(x,y,9,15);
             }
         }
     }

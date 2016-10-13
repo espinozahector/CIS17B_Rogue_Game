@@ -2,8 +2,8 @@
     <qresource prefix="/images">
         <file>defaultBG.png</file>
         <file>snow.png</file>
-        <file>BackGroundGUI.jpg</file>
         <file>characterBase.png</file>
+        <file>BackGroundGUI.jpg</file>
     </qresource>
     <qresource prefix="/tiles">
         <file>errorTile.png</file>

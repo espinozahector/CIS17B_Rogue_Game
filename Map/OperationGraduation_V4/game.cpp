@@ -16,7 +16,7 @@ Game::Game(QWidget *parent) : QGraphicsView(parent)
     //sample array for the room
 
     const int ROWS=9;
-    const int COLS=16;
+    const int COLS=15;
 //    int samp[ROWS][COLS]={
 //        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 //        {0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
