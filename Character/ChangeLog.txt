@@ -12,3 +12,10 @@
 **EGhost Class**
 * Created EGhost class
 * Inherited Enemy class for functionality
+
+(10/14/2016 11:20pm - Jasmine)=====================================
+**Created Character Images**
+
+*Created a football jock character
+	-added front, bac, side movement
+*Added gif to display movements
