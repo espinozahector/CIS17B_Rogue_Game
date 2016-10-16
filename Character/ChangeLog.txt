@@ -19,3 +19,10 @@
 *Created a football jock character
 	-added front, bac, side movement
 *Added gif to display movements
+
+(10/15/2016 - Jarone)===================================
+**Updated Char_v5**
+* Completed functions for item and inv
+* Removed Inv from enemy
+* Added Inv to character
+* Added random item generation
