@@ -1,5 +1,12 @@
 # CIS17B_Rogue_Game
 <b>RCC Fall 2016</b> 
+* To-Do
+  - Transfer to QT.
+  - Player movement around the map, from room to room.
+  - Create room generator -> doors are important
+  - More efficient level generator
+    - maybe building 3 - 4 rooms at a time
+  - Create "Boss Room" -> just label it for now
 * Progress
   * We have come a long way since Map v1! Progress is posted to GitHub. Hector and I have just completed Map V5 without comments tho.
    So if you look through it and are confused, don't fret, i'm here to explain! So the first thing we built was a Level Builder.
@@ -10,12 +17,4 @@
    If you have any questions, please ask.
    If you believe you can help us make it more efficient, please say something. We will take all ideas in to consideration
    Other than that, We can't wait to implement this in Qt and use actual pixel art
-* To-Do
-  - Transfer to QT.
-  - Player movement around the map, from room to room.
-  - More efficient level generator
-    - maybe building 3 - 4 rooms at a time
-  - Create "Boss Room" -> just label it for now
-  - Create room generator -> doors are important
-  - Start builidng a connection where a player can move on the map
 
