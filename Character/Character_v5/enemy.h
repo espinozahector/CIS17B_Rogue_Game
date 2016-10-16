@@ -9,7 +9,6 @@ class Enemy : public Character
 {
     private:
         int eExp;           //Enemy experience worth
-        Inv *loot;          //Enemy loot drop
 
         const float SCALE = 0.3;   //Enemy stat scaling
 
@@ -32,7 +31,6 @@ class Enemy : public Character
         int getExp();
 
         //Items
-        void createInv(int);    //Creates inv
         Item dropLoot();        //Returns item drop
 
         //Scale enemy stats

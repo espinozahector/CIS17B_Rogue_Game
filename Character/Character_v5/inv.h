@@ -7,34 +7,35 @@
 class Inv
 {
     private:
+        //Variables
         int iCap;       //Inventory capacity
         int iSize;      //Inventory size
         Item *stock;    //Inventory stock
 
-        void fill();    //Fills stock
+        //Functions
+        void sort(int); //Sorts inv
 
     public:
         //Constructors
         Inv();
-        //Param(Size)
+        //Param(Capacity)
         Inv(int);
-        //Param(Item array)
-        Inv(Item&);
         ~Inv();
 
         //Inv capacity get/set
         void setCap(int);
-        int getCap();
+        int getCap(){return iCap;}
 
-        //Inv size get/set
-        void setSize(int);
-        int getSize();
+        //Inv size get
+        int getSize(){return iSize;}
 
         //Inventory
-        void addItem(Item); //Add item
-        Item getItem(int);  //return item
-
-
+        bool addItem(Item);     //Add item
+        bool pullItem(int);     //Pulls then sorts item(slot)
+        bool remItem(int);      //Remove item(slot)
+        Item getItem(int);      //return item(slot)
+        void genItems(int);     //Generates random items(scaling)
+        void fill();            //Fills empty stock
 };
 
 #endif // INV_H

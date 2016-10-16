@@ -14,30 +14,11 @@ Character::Character(){
     setAC(0);
     setCrit(0);
 
-    //Set player position
+    //Set character position
     cXpos = 0;
     cYpos = 0;
 
-    //Set player speed
-    cVel = 3;
-
-    setCoor(cXpos,cYpos);
-}
-
-Character::Character(int health, int damage, int armor, int crit){
-    //Set player stats
-    setName("");
-    setHpMx(health);
-    setHp(health);
-    setDmg(damage);
-    setAC(armor);
-    setCrit(crit);
-
-    //Set player position
-    cXpos = 0;
-    cYpos = 0;
-
-    //Set player speed
+    //Set default character speed
     cVel = 3;
 
     setCoor(cXpos,cYpos);
@@ -52,62 +33,79 @@ Character::Character(string name, int health, int damage, int armor, int crit){
     setAC(armor);
     setCrit(crit);
 
-    //Set player position
+    //Set character position
     cXpos = 0;
     cYpos = 0;
 
-    //Set player speed
+    //Set default character speed
     cVel = 3;
+
 
     setCoor(cXpos,cYpos);
 }
 
 Character::~Character(){
+    cInv = NULL;
+}
 
+void Character::setName(string name){
+    //Set character name
+    cName = name;
 }
 
 void Character::setHpMx(int max){
-    if(max >=0)
+    if(max > 999)
+        cHealthMx = 999;
+    else if(max > 0)
         cHealthMx = max;
     else
         cHealthMx = 0;
 }
 
 void Character::setHp(int health){
-    if(health >= 0)
+    if (cHealth > cHealthMx)
+            cHealth = cHealthMx;
+    else if(health >= 0)
         cHealth = health;
-    else if (cHealth > cHealthMx)
-        cHealth = cHealthMx;
     else
         cHealth = 0;
 
 }
 
 void Character::setDmg(int damage){
-    if(damage >=0)
+    if(damage > 999)
+            cDamage = 999;
+    else if(damage > 0)
         cDamage = damage;
-    else if(damage >= 999)
-        cDamage = 999;
     else
         cDamage = 0;
 }
 
 void Character::setAC(int armor){
-    if(armor >= 0)
+    if(armor > 99)
+            cArmor = 99;
+    else if(armor > 0)
         cArmor = armor;
-    else if(armor >= 100)
-        cArmor = 99;
     else
         cArmor = 0;
 }
 
 void Character::setCrit(int crit){
-    if(crit >=0)
-        cCrit = crit;
-    else if(crit >=100)
+    if(crit > 99)
         cCrit = 99;
+    else if(crit >0)
+        cCrit = crit;
     else
         cCrit = 0;
+}
+
+void Character::createInv(int cap){
+    if(cap > -1 && cap < 10){
+        //Creates inventory
+        cInv = new Inv(cap);
+        //Fills empty inventory
+        cInv->fill();
+    }
 }
 
 void Character::setCoor(int x, int y){
@@ -115,13 +113,22 @@ void Character::setCoor(int x, int y){
     setY(y);
 }
 
+void Character::setVel(int vel){
+    if(vel > 10)
+        cVel = 0;
+    else if(vel > -10)
+        cVel = vel;
+    else
+        cVel = 0;
+}
+
 int Character::attack(){
     //Calculates attack
-    srand(time(0));
     int dmg = cDamage;
 
     //Generates crit chance
     int crit = rand()%101;
+
     if(crit < cCrit){
         dmg *= 1.5;
     }
@@ -131,18 +138,17 @@ int Character::attack(){
 }
 
 int Character::getHit(int damage){
-    //Calculates damage on hit
+    //Calculates, sets, and returns damage on hit
     int health = cHealth;
-    int dmg = damage*(static_cast<float>(cArmor)/100);
+    int dmg = damage - (damage*(static_cast<float>(cArmor)/100));
     health -= dmg;
     this->setHp(health);
     return dmg;
 }
 
-void Character::attackChar(Character &target){
-    //Outputs and calculates target damage
-    cout << cName <<  " attacks and deals " << target.getHit(this->attack())
-         << " damage to " << target.getName() << endl;
+int Character::attackChar(Character &target){
+    //Calculates target damage
+    return target.getHit(this->attack());
 }
 
 void Character::heal(int heal){
@@ -150,6 +156,4 @@ void Character::heal(int heal){
     this->setHp(this->getHp()+ heal);
 }
 
-void Character::setName(string name){
-    cName = name;
-}
+

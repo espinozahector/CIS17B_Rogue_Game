@@ -16,26 +16,21 @@ Enemy::Enemy(string name, int hp, int dmg, int ac, int crit, int exp)
 
 
 Enemy::~Enemy(){
-    //null pointer
-    loot = NULL;
+
 }
 
 void Enemy::setExp(int exp){
-    if(exp > 0)
+    if(exp > 999)
+        eExp = 999;
+    else if(exp > 0)
         eExp = exp;
     else
         eExp = 0;
 }
 
-void Enemy::createInv(int cap){
-    //Create loot
-    //loot = new Inv(cap);
-}
-
 Item Enemy::dropLoot(){
-    srand(time(0));
-    //int index = rand()%loot->getSize(); //Generates index
-    //return loot->getItem(index);        //Returns random item
+    int index = rand()%getInv()->getCap();  //Generates index
+    return getInv()->getItem(index);        //Returns random item
 }
 
 void Enemy::scaleUp(){
