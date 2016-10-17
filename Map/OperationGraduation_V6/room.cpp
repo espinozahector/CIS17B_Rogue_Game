@@ -42,7 +42,7 @@ Room::~Room()
 //Start room should be open
 void Room::startRoom()
 {
-    vector<pair<int,int>> start;
+    vector<pair<int,int> > start;
     start.push_back(make_pair(1,1));
     start.push_back(make_pair(2,1));
     start.push_back(make_pair(1,2));
@@ -63,7 +63,7 @@ void Room::startRoom()
 void Room::bldRoom()
 {
     //Used to not block doors...
-    vector<pair<int,int>> coordinates;
+    vector<pair<int,int> > coordinates;
     coordinates.push_back(make_pair(0,7));
     coordinates.push_back(make_pair(1,6));
     coordinates.push_back(make_pair(1,7));
