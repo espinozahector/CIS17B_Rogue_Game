@@ -26,3 +26,8 @@
 * Removed Inv from enemy
 * Added Inv to character
 * Added random item generation
+
+(10/17/16 11:15p - Curt)=============================================
+
+*Moved new Inv and Item from v5 to new revision
+*added genPrefix and genSuffix to Item as private functions
