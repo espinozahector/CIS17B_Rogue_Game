@@ -28,6 +28,7 @@ public:
     void bldLevel();                // Builds the level / room locations
     void findEnd();                 // Finds farthest location from center
     int getNRooms() {return numRoom;}
+    void printmap();
 };
 
 

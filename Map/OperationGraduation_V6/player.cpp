@@ -17,11 +17,11 @@ void Player::keyPressEvent(QKeyEvent *event)
     //move the player left
     if(event->key() == Qt::Key_A || event->key() == Qt::Key_Left)
     {
-        if(pos().x() <=70 && pos().x() > 20 && pos().y() == 410)
+        if(pos().x() <=70 && pos().x() > 20 && pos().y() >= 400 && pos().y() <= 420)
         {
             setPos(x()-10,y());
         }
-        else if(pos().x() > 70)
+        else if(pos().x() > 60)
         {
             setPos(x()-10,y());
         }
@@ -29,11 +29,11 @@ void Player::keyPressEvent(QKeyEvent *event)
     //Move the player Right
     else if (event->key() == Qt::Key_D || event->key() == Qt::Key_Right)
     {
-        if(pos().x() >= 800 && pos().x() < 850 && pos().y() == 410)
+        if(pos().x() >= 800 && pos().x() < 850 && pos().y() >= 400 && pos().y() <= 420)
         {
             setPos(x()+10,y());
         }
-        else if(pos().x() + 100 < 900)
+        else if(pos().x() + 100 < 895)
         {
             setPos(x()+10,y());
         }
@@ -41,11 +41,11 @@ void Player::keyPressEvent(QKeyEvent *event)
     //Move the player up
     else if (event->key() == Qt::Key_W || event->key() == Qt::Key_Up)
     {
-        if(pos().x() == 440 && pos().y() <= 200 && pos().y() > 180)
+        if(pos().x() >= 430 && pos().x() <= 450 && pos().y() <= 200 && pos().y() > 180)
         {
             setPos(x(),y()-10);
         }
-        else if(pos().y() > 209)
+        else if(pos().y() > 44)
         {
             setPos(x(),y()-10);
         }
@@ -53,11 +53,11 @@ void Player::keyPressEvent(QKeyEvent *event)
     //Move the player down
     else if (event->key() == Qt::Key_S || event->key() == Qt::Key_Down)
     {
-        if(pos().x() == 440 && pos().y() >= 600 && pos().y() < 650)
+        if(pos().x() >= 430 && pos().x() <= 450 && pos().y() >= 600 && pos().y() < 650)
         {
             setPos(x(),y()+10);
         }
-        if(pos().y() + 100 < 700)
+        else if(pos().y() + 100 < 530)
         {
             setPos(x(),y()+10);
         }

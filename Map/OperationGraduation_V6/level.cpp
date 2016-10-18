@@ -37,6 +37,19 @@ void Level::setStrt(int x, int y) // Sets the start of the level
     RoomY.push_back(yStart - 1);
 }
 
+void Level::printmap()
+{
+    for(int i = 0;i<getSzRows();i++)
+    {
+        for(int j = 0; j < getSzCols();j++)
+        {
+            cout << level[i]->getEl(j) << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
 
 void Level::bldLevel()   // Builds the level / room locations
 {

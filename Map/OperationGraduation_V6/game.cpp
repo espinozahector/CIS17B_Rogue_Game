@@ -2,19 +2,22 @@
 
 
 Game::Game(QWidget *parent) : QGraphicsView(parent)
+  //ui(new Ui::Game)
 {
+
+    //ui->setupUi(this);
     //create the map
     Map base(9,9);
 
     QGraphicsScene *scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1280,720); //make the scene 800x600
-
+    scene->setSceneRect(0,0,900,540); //make the scene 800x600
+    setFixedSize(900,540);
     //make the newly created scene the scene to visualize
     setScene(scene);
-
     //this is only here to make it run
     int rows = 9;
     int cols = 15;
+
 
     //newRoom = new QWidget;
     //newRoom->setFixedSize(960,540);

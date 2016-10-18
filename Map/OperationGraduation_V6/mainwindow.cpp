@@ -1,22 +1,42 @@
 #include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <iostream>
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
 {
-    Game *game = new Game;
+    roomchild = 0;
+    isInit = true;
+    ui->setupUi(this);
+}
 
-    setCentralWidget(game);
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::crRmCh()
+{
+    ui->mdiArea->setBackground(QColor("black"));
+    roomchild = new RoomChild(ui->mdiArea);
+    roomchild->setAttribute(Qt::WA_DeleteOnClose);
+    roomchild->setWindowFlags(Qt::FramelessWindowHint);
+    roomchild->show();
+    roomchild->move(5,135);
+}
 
 
-    game->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    game->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(1280,720);
-
-    //create a background (commented since it did not look good)
-    game->setBackgroundBrush(QBrush(QImage(":/Other/images/other/BackGroundGUI.jpg")));
-
-    //centering the window to the desktop screen
-    QRect screenGeometry = QApplication::desktop()->screenGeometry();
-    int x = (screenGeometry.width()-this->width()) / 2;
-    int y = (screenGeometry.height()-this->height()) / 2;
-    this->move(x, y);
+void MainWindow::newGame()
+{
+    if(isInit)
+    {
+        isInit = false;
+        crRmCh();
+    }
+    else
+    {
+        delete roomchild;
+        crRmCh();
+    }
 }

@@ -18,5 +18,6 @@
         <file>images/other/defaultBG.png</file>
         <file>images/other/Title1080.jpg</file>
         <file>images/other/Title.png</file>
+        <file>images/other/Title720.jpg</file>
     </qresource>
 </RCC>

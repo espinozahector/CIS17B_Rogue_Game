@@ -10,6 +10,8 @@
 #include "map.h"
 #include "player.h"
 
+
+
 class Game : public QGraphicsView{
 public:
     Game(QWidget *parent=0);
@@ -17,7 +19,6 @@ public:
     QGraphicsScene *scene;
 
     Player *player;
-
 };
 
 #endif // GAME_H

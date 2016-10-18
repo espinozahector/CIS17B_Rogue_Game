@@ -30,7 +30,7 @@
 using namespace std;
 
 //User Libraries
-#include "mainwindow.h"
+#include "replace.h"
 #include "splash.h"
 
 //Function Prototypes

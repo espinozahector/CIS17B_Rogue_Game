@@ -7,7 +7,7 @@ Tile::Tile(QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
 
 void Tile::move(int x, int y)
 {
-    this->setPos((x*60) + 11,(y*60) + 169);
+    this->setPos((x*60),(y*60));
 }
 
 void Tile::design(int x, int y)

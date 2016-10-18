@@ -17,8 +17,8 @@ Room::Room(int x, int y, int nRows, int nCols)
     rRows = nRows;
     rCols = nCols;
     size = 0;
-    bldRoom();
     setLoc(x,y);
+    bldRoom();
     size++;
 }
 
@@ -60,10 +60,28 @@ void Room::startRoom()
     start.push_back(make_pair(6,13));
 
 }
+
+/*
+ * iterate -> x -> y -> coords
+ * bool check
+ *      if blocks < numBlocks check = false;
+ *      if blocks == numBlocks check = true;
+ *
+ *      if check == true
+ *              iterate throught the rest and set to 1
+ *
+ *
+ */
 void Room::bldRoom()
 {
     //Used to not block doors...
     vector<pair<int,int> > coordinates;
+
+    //doors
+
+    //walls
+
+    //something else
     coordinates.push_back(make_pair(0,7));
     coordinates.push_back(make_pair(1,6));
     coordinates.push_back(make_pair(1,7));
@@ -87,7 +105,9 @@ void Room::bldRoom()
 
     float crtPrc;
     float pTemp;
-    char temp;
+    int blocks=0;
+    int numblocks = 10;
+    bool create = false;
     room = new Row *[rRows];
 
     for(int i = 0; i < rRows; i++)
@@ -95,32 +115,86 @@ void Room::bldRoom()
         room[i] = new Row(rCols);
     }
 
-    for(int x = 0; x < rRows ; x++)
+    for(int x = 1; x < rRows ; x++)
     {
-        for(int y = 0; y < rCols; y++)
+        for(int y = 1; y < rCols; y++)
         {
-            for(unsigned int i = 0 ; i < coordinates.size();i++)
+
+            if(x != 8 && y != 14)
             {
-                if(x == coordinates[i].first && y == coordinates[i].second)
+                for(unsigned int i = 0 ; i < coordinates.size();i++)
                 {
-                    room[x]->setEl(y,1);
-                    break;
+                    if(x == coordinates[i].first && y == coordinates[i].second)
+                    {
+                        room[x]->setEl(y,1);
+                        create = true;
+                        break;
+                    }
+                }
+                if(!create)
+                {
+                    if(blocks < numblocks)
+                    {
+                        pTemp = rand();
+                        crtPrc = rand()/3;
+                        if (pTemp <= crtPrc)
+                        {
+                            room[x]->setEl(y,0);
+                            blocks++;
+                        }
+                        else
+                        {
+                            room[x]->setEl(y,1);
+                        }
+                    }
+                    else
+                    {
+                        room[x]->setEl(y,1);
+                    }
                 }
                 else
                 {
-                    pTemp = rand();
-                    crtPrc = rand()/3;
-                    if (pTemp <= crtPrc)
-                    {
-                        temp = 0;
-                    }
-                    else temp = 1;
-                    room[x]->setEl(y,temp);
+                    room[x]->setEl(y,1);
                 }
+                create = false;
             }
         }
     }
+//    cout << "Room [" << this->getXLoc() << "," << this->getYLoc() << "] blocks: " << blocks << endl;
+
 }
+/*
+ * for(unsigned int i = 0 ; i < coordinates.size();i++)
+                {
+                    if(x == coordinates[i].first && y == coordinates[i].second)
+                    {
+                        room[x]->setEl(y,1);
+                        break;
+                    }
+                    else if(blocks<numblocks)
+                    {
+                        pTemp = rand();
+                        crtPrc = rand()/3;
+                        if (pTemp <= crtPrc)
+                        {
+                            room[x]->setEl(y,0);
+                            blocks++;
+                            break;
+                        }
+                        else
+                        {
+                            room[x]->setEl(y,1);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        room[x]->setEl(y,1);
+                        break;
+                    }
+
+                }
+ */
 
 void Room::prntRoom()
 {

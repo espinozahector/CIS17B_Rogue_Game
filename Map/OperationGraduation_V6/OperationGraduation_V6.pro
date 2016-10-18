@@ -23,9 +23,9 @@ SOURCES += main.cpp \
     row.cpp \
     player.cpp \
     tile.cpp \
-    mainwindow.cpp \
-    roomwidget.cpp \
-    splash.cpp
+    splash.cpp \
+    roomchild.cpp \
+    mainwindow.cpp
 
 HEADERS  += \
     game.h \
@@ -36,11 +36,12 @@ HEADERS  += \
     row.h \
     player.h \
     tile.h \
-    mainwindow.h \
-    roomwidget.h \
-    splash.h
+    splash.h \
+    roomchild.h \
+    mainwindow.h
 
-FORMS    +=
+FORMS    += \
+    mainwindow.ui
 
 RESOURCES += \
     res.qrc
