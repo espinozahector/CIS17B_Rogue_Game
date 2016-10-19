@@ -1,0 +1,28 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
+//System and Qt Libraries
+#include <QGraphicsPixmapItem>
+#include <QObject>
+#include <QGraphicsItem>
+#include <QGraphicsScene>
+#include <QKeyEvent>
+
+class Player:public QObject, public QGraphicsPixmapItem{
+    Q_OBJECT
+private:
+    int playerx; //used for player location on the map ! the room
+    int playery; //used for player location on the map ! the room
+public:
+    Player(QGraphicsItem *parent=0);
+    void keyPressEvent(QKeyEvent *event);
+    int getMapX() {return playerx;}
+    int getMapY() {return playery;}
+private slots:
+
+public slots:
+
+
+};
+
+#endif // PLAYER_H
