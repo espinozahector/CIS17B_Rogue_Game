@@ -1,3 +1,32 @@
+
+(10/18/16 - Jarone)=============================================
+
+**Created Char_v6 for gui preparation**
+* Altered all classes
+* Cleaned headers
+* added enemy class headers: food, debt, due date, & exams
+* added player class headers: jock, musician, cs major
+* Included comments
+
+(10/17/16 11:15p - Curt)=============================================
+
+*Moved new Inv and Item from v5 to new revision
+*added genPrefix and genSuffix to Item as private functions
+
+(10/15/2016 - Jarone)===================================
+**Updated Char_v5**
+* Completed functions for item and inv
+* Removed Inv from enemy
+* Added Inv to character
+* Added random item generation
+
+(10/14/2016 11:20pm - Jasmine)=====================================
+**Created Character Images**
+
+*Created a football jock character
+	-added front, bac, side movement
+*Added gif to display movements
+
 (10/06/2016 11:20pm - Jarone)=====================================
 **Created Char_v5**
 * Sorted Files
@@ -12,22 +41,3 @@
 **EGhost Class**
 * Created EGhost class
 * Inherited Enemy class for functionality
-
-(10/14/2016 11:20pm - Jasmine)=====================================
-**Created Character Images**
-
-*Created a football jock character
-	-added front, bac, side movement
-*Added gif to display movements
-
-(10/15/2016 - Jarone)===================================
-**Updated Char_v5**
-* Completed functions for item and inv
-* Removed Inv from enemy
-* Added Inv to character
-* Added random item generation
-
-(10/17/16 11:15p - Curt)=============================================
-
-*Moved new Inv and Item from v5 to new revision
-*added genPrefix and genSuffix to Item as private functions
