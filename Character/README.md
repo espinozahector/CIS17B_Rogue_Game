@@ -1,6 +1,15 @@
 # CIS17B_Rogue_Game
 RCC Fall 2016 
 
+Checklist
+===============================
+* [X]Item class
+* [X]Inv class
+* [X]Character class
+* [ ]Player class
+* [ ]Student classes
+* [ ]Enemy classes
+
 Game Characters and Items
 ===============================
 Character goals
