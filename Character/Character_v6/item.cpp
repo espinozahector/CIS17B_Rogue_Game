@@ -13,7 +13,7 @@ Item::Item()
     itemID = -1;     //Empty item Id
 }
 
-Item::Item(int id, string name, int dmg, float ac, int crit, int vel){
+Item::Item(int id, string name, int dmg, int ac, int crit, int vel){
     setName(name);  //Set item name
     setID(id);      //Set item id
     setDmg(dmg);    //Set item dmg
@@ -46,9 +46,9 @@ void Item::setDmg(int dmg){
         iDmg = 0;
 }
 
-void Item::setAC(float ac){
-    if(ac > .99)
-        iArmor = .99;
+void Item::setAC(int ac){
+    if(ac > 99)
+        iArmor = 99;
     else if(ac > 0)
         iArmor = ac;
     else
@@ -90,7 +90,7 @@ void Item::genStats(int scale){
     setDmg(dmg + (dmg*(scale/3)));
 
     //Generate armor
-    float ac = static_cast<float>(genAc(id))/100;
+    int ac = genAc(id);
     setAC(ac + (ac*(scale/3)));
 
     //Generate crit
@@ -118,10 +118,10 @@ int Item::genDmg(int id){
             dmg = rand()%5;
             break;
         case 4: //L Weapon
-            dmg = rand()%10;
+            dmg = rand()%10+1;
             break;
         case 5: //R Weapon
-            dmg = rand()%10;
+            dmg = rand()%10+1;
             break;
         default:
             dmg = 0;
@@ -252,7 +252,7 @@ string Item::genPrefix()
         case 10:
             prefix = "Hilarious";
         default:
-            prefix = "";
+            prefix = "Regular";
             break;
     }
     return prefix;

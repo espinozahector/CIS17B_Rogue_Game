@@ -22,7 +22,7 @@ class Item
                             5=right weapon
                         */
         int iDmg;       //Item damage
-        float iArmor;   //Item Armor
+        int iArmor;   //Item Armor
         int iCrit;      //Item crit
         int iVel;       //Item speed buff (velocity)
 
@@ -41,7 +41,7 @@ class Item
         //default constructor is empty inventory placeholder item
         Item();
         //Param(ID, name, dmg, armor, crit, spd)
-        Item(int, string, int, float, int, int);
+        Item(int, string, int, int, int, int);
 
         //Item ID get/set
         void setID(int);
@@ -56,8 +56,8 @@ class Item
         int getDmg(){return iDmg;}
 
         //Item armor get/set
-        void setAC(float);
-        float getAC(){return iArmor;}
+        void setAC(int);
+        int getAC(){return iArmor;}
 
         //Item crit get/set
         void setCrit(int);

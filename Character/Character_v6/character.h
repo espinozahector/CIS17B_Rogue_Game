@@ -16,7 +16,7 @@ class Character
         int cHealth;    //Character health
         int cHealthMx;  //Character max health
         int cDamage;    //Character damage
-        float cArmor;     //Character Armor class
+        int cArmor;     //Character Armor class
         int cCrit;      //Character crit chance
         int cVel;       //Character movement speed
 
@@ -26,7 +26,7 @@ class Character
         //Constructors & Deconstructor
         Character(); //Blank character
         //Param(Name, hp, dmg, armor, crit)
-        Character(string, int, int, float, int);
+        Character(string, int, int, int, int);
         ~Character();
 
         //Name set/get
@@ -46,8 +46,8 @@ class Character
         int getDmg(){return cDamage;}
 
         //Armor set/get
-        void setAC(float);
-        float getAC(){return cArmor;}
+        void setAC(int);
+        int getAC(){return cArmor;}
 
         //Critical chance set/get
         void setCrit(int);

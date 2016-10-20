@@ -22,8 +22,7 @@ class Player : public Character
         //Constructors
         Player();
         //Param(name,health,damage,armor,crit)
-        Player(string, int, int, float, int);
-        ~Player();
+        Player(string, int, int, int, int);
 
         //Level functions
         //Sets level(value)
@@ -34,16 +33,16 @@ class Player : public Character
         //Calc player stat increase
         //Ex) See Char_v5 enemy.scaleUp()
         //Resets exp to currentExp - maxExp for exp carry
-        void levelup();
+        bool levelup(int);
 
         //Experience
         //Sets exp(value)
-        //Allow values 0-999
+        //Allow values 0-9999
         //returns true if the exp exceeds maxExp
-        bool setExp(int);//Set exp and flags lvl up
+        bool setExp(int);
         //Adds exp(value)
         //Returns true if exp exceeds maxExp
-        bool addExp(int);//Add exp and flags lvl up
+        bool addExp(int);
         int getExp(){return pExp;}       //Returns exp
 
         //Max Experience
@@ -61,6 +60,10 @@ class Player : public Character
         //Does not run if isCharged() returns false
         //Resets charge to 0 if ran
         int special();
+
+        //Equipped/Dequip functions
+        void equip(int);
+        void dequip(int);
 };
 
 #endif // PLAYER_H

@@ -18,7 +18,7 @@ Character::Character(){
     cVel = 3;
 }
 
-Character::Character(string name, int health, int damage, float armor, int crit){
+Character::Character(string name, int health, int damage, int armor, int crit){
     //Set character stats
     setName(name);
     setHpMx(health);
@@ -68,10 +68,10 @@ void Character::setDmg(int damage){
         cDamage = 0;
 }
 
-void Character::setAC(float armor){
-    if(armor > .99)
-            cArmor = .99;
-    else if(armor > -1)
+void Character::setAC(int armor){
+    if(armor > 99)
+            cArmor = 99;
+    else if(armor > 0)
         cArmor = armor;
     else
         cArmor = 0;
@@ -122,7 +122,7 @@ int Character::attack(){
 int Character::getHit(int damage){
     //Calculates, sets, and returns damage on hit
     int health = cHealth;
-    int dmg = damage - (damage*cArmor);
+    int dmg = damage - (damage*static_cast<float>(cArmor)/100);
     health -= dmg;
     this->setHp(health);
     return dmg;
