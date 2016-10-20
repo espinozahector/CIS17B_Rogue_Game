@@ -6,9 +6,9 @@ Checklist
 * [X]Item class
 * [X]Inv class
 * [X]Character class
-* [ ]Player class
-* [ ]Student classes
-* [ ]Enemy classes
+* [X]Player class
+* [X]Student classes
+* [X]Enemy classes
 
 Game Characters and Items
 ===============================
@@ -35,12 +35,18 @@ Player
 	
 -Occupations:
 	
-	*Music Major: High single target damage ranged class
-		- Skills: 
-	*Jock: Melee tank class
-		- Skills:  
-	*Cs Major: AOE Mage class
-		- Skills:
+	*Music Major: Triangle instrument
+		- Role: AOE Damage class
+		- Attack1: Throws metal rod projectile (Bullet projectile)
+		- Attack2: Play triangle (Sends out a sound AOE attack)
+	*Jock: Football/Baseball player
+		- Role: Melee class
+		- Attack1: Swing bat
+		- Attack2: Charge enemies with tackle dummy
+	*Cs Major: Programmer
+		- Role: High single point damage class
+		- Attack1: Syntax Error (Coded Bullet projectile)
+		- Attack2: Logic Error (Whips mouse in a line directly ahead of him)
 
 Enemy
 
@@ -67,6 +73,13 @@ Items
 -Item Stats:
 
 	*Item ID#
+		-1=empty
+		0=head
+		1=torso
+		2=legs
+		3=feet
+		4=left weapon
+		5=right weapon
   	*Name
 	*Damage
 	*Armor
@@ -75,6 +88,31 @@ Items
 
 	*Holds x and y coordinates for spawn positioning
   	*Contains item image
+	
+-Items:
+
+	*Music Major
+		- 0 = Marching cap
+		- 1 = Uniform
+		- 2 = Slacks
+		- 3 = Fancy shoes
+		- 4 = Metal rod
+		- 5 = Triangle
+	*Jock
+		- 0 = Helmet
+		- 1 = Padded Jersey
+		- 2 = Thigh pads
+		- 3 = Cleats
+		- 4 = Bat
+		- 5 = Tackle Dummy
+	*Programmer
+		- 0 = Glasses
+		- 1 = Hoodie
+		- 2 = Jeans
+		- 3 = Sneakers
+		- 4 = Computer
+		- 5 = Mouse
+		
 
 Inventory
 

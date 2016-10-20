@@ -2,12 +2,13 @@
 #define EDEBT_H
 
 #include "character.h"
+#include <cstdlib>
 
 //Debt Ghost enemy class
 class eDebt : public Character
 {
     private:
-        int exp;    //Enemy exp worth
+        int eExp;    //Enemy exp worth
 
     public:
         //Param(player level)
@@ -21,7 +22,7 @@ class eDebt : public Character
         //Sets exp worth(exp)
         //Accept values 0-999
         void setExp(int);
-        int getExp(){return exp;}
+        int getExp(){return eExp;}
 
         //Enemy attack functions
         //Calc/return dmg on character

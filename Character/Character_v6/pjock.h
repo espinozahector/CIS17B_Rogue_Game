@@ -7,10 +7,11 @@
 class pJock : public Player
 {
     private:
+        const string PCLASS = "Jock";
         //Item name generator(slot)
         //Assigns/returns the string based on slot value
         //Item name is related to slot ie) glasses for cs major helm.
-        string itemName(int);
+        string genName(int);
 
     public:
         //Constructor
@@ -18,7 +19,10 @@ class pJock : public Player
         //ex) pJock() : Player("Jock", 100, 10, 10, 10)
         //Balance values as you see fit
         //Creates Inv(cap=6) in constructor
-        pJock();
+        pJock(string);
+
+        //Returns class name
+        string getClass(){return PCLASS;}
 
         //Sets item into the inventory
         //item id designates the inv slot
