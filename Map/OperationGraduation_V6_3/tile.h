@@ -11,7 +11,7 @@ class Tile: public QGraphicsPixmapItem{
 public:
     Tile(QGraphicsItem *parent=0);
     void move(int,int);
-    void design(int,int);
+    void design(int,int,bool *);
     void setVal(int);
 private:
     int val;

@@ -25,7 +25,7 @@ public:
     Player *player;
     void delScene();
     void newScene(Map&,int,int);
-    void changeRoom(Map&,int,int);
+    void changeRoom(Map&);
 
 private slots:
 

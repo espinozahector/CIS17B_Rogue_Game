@@ -10,24 +10,24 @@ void Tile::move(int x, int y)
     this->setPos((x*60),(y*60));
 }
 
-void Tile::design(int x, int y)
+void Tile::design(int x, int y, bool *a)
 {
     //Set the tile image
 
     //SETS the doors
-    if(x == 7 && y == 0)
+    if(x == 7 && y == 0 && a[0])
     {
         setPixmap(QPixmap(":/Map/images/map/Up_Door.jpg"));
     }
-    else if(x == 7 && y == 8)
+    else if(x == 7 && y == 8 && a[2])
     {
         setPixmap(QPixmap(":/Map/images/map/Down_door.jpg"));
     }
-    else if(x == 0 && y == 4)
+    else if(x == 0 && y == 4 && a[3])
     {
         setPixmap(QPixmap(":/Map/images/map/Left_door.jpg"));
     }
-    else if(x == 14 && y ==4)
+    else if(x == 14 && y ==4 && a[1])
     {
         setPixmap(QPixmap(":/Map/images/map/Right_door.jpg"));
     }

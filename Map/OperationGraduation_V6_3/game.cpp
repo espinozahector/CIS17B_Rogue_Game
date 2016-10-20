@@ -61,7 +61,7 @@ Game::Game(QWidget *parent) : QGraphicsView(parent)
 
 }
 
-void Game::changeRoom(Map &base, int x, int y)
+void Game::changeRoom(Map &base)
 {
     delScene();
     newScene(base,player->getMapX(),player->getMapY());
@@ -85,21 +85,26 @@ void Game::newScene(Map &base,int x, int y)
 
     Tile *tileSet;
     tileSet = new Tile[135];
+    bool temp[4] = {0,0,0,0};
+    for(int i = 0; i < 4; i++)
+        temp[i] = base.getRoom(x,y)->getDoors(i);
 
+    cout << "door temp: ";
+    for(int i = 0; i < 4; i++)
+        cout << temp[i] << ' ';
+    cout << endl;
     //iterate through array of tiles
     for(int i=0;i<gRows;i++){
         for(int j=0;j<gCols;j++){
             //set map array values
             tileSet[(i*gCols)+j].setVal(base.getRoom(x,y)->getRoomVal(i,j));
-//            tileSet[(i*COLS)+j].setVal(samp[i][j]);
             //set pixmaps
-            tileSet[(i*gCols)+j].design(j,i);
+            tileSet[(i*gCols)+j].design(j,i,temp);
             //position tiles
             tileSet[(i*gCols)+j].move(j,i);
             //add to scene
             scene->addItem(tileSet+((i*gCols)+j));
         }
     }
+    delete [] temp;
 }
-
-

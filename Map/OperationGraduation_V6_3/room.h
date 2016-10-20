@@ -22,7 +22,8 @@ private:
     int yLoc;
     Row **room;
     int size;
-    bool *doors;     //stores what doors are where (index 0 = top, index 1 = right, index 2 = bottom, index 3 = left)
+    static const int SIZE = 4;
+    bool doors[SIZE];    //stores what doors are where (index 0 = top, index 1 = right, index 2 = bottom, index 3 = left)
 public:
     Room();
     Room(int, int, int, int);  // for building room instances
@@ -37,8 +38,9 @@ public:
     int getYLoc() {return yLoc;}
     bool getRoomVal(int,int);
     void startRoom();
-    void setDoors(bool *);          // Sets the doors in current room
-    bool getDoors() {return doors;} // Gets the doors of the current room
+    void setDoors(bool *);                  // Sets the doors in current room
+    bool getDoors(int i) {return doors[i];} // Gets the doors of the current room
 };
+
 
 #endif // ROOM_H

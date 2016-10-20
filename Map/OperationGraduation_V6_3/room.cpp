@@ -14,6 +14,7 @@ Room::Room()
 
 Room::Room(int x, int y, int nRows, int nCols)
 {
+    doors[] = {0,0,0,0};
     rRows = nRows;
     rCols = nCols;
     size = 0;
@@ -61,10 +62,11 @@ void Room::startRoom()
 
 }
 
-void Room::setDoors(bool *temp)
+void Room::setDoors(bool temp[])
 {
-    doors = temp;
-
+    for(int i = 0; i < 4; i++)
+        doors[i] = temp[i];
+    cout << "doors dynamic array: ";
     cout << getXLoc() << "," << getYLoc() << " doors = ";
     for(int i = 0; i < 4;i++)
     {

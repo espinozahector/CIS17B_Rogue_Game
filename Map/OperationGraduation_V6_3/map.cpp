@@ -46,34 +46,50 @@ Map::~Map()
 
 void Map::DoorsChk()
 {
-    bool *temp = new bool[4];
-    for(int i = 0; i < 4; i++)
-        temp[i] = 0;
+    bool *temp;
 
     int numTemp = getNRooms();
     for(int i = 0; i < numTemp; i++)
     {
+        if(temp != NULL)
+            delete [] temp;
+        else temp = new bool[4];
+
+        for(int k = 0; k < 4; k++)
+            temp[k] = 0;
+
         for(int j = 0; j < numTemp; j++)
         {
-            if(getRoomX(i) == getRoomX(j) && (getRoomY(i) - 1) == getRoomY(j)) // room above
-                temp[0] = 1;
+            if(i != j)
+            {
+                if(roomMap[i]->getXLoc() == roomMap[j]->getXLoc() && (roomMap[i]->getYLoc() - 1) == roomMap[j]->getYLoc()) // room above (left)
+                    temp[3] = 1;
 
-            if((getRoomX(i) + 1) == getRoomX(j) && getRoomY(i) == getRoomY(j)) // room to the right
-                temp[1] = 1;
+                if((roomMap[i]->getXLoc() + 1) == roomMap[j]->getXLoc() && roomMap[i]->getYLoc() == roomMap[j]->getYLoc()) // room to the right (bottom)
+                    temp[2] = 1;
 
-            if(getRoomX(i) == getRoomX(j) && (getRoomY(i) + 1) == getRoomY(j)) // room below
-                temp[2] = 1;
+                if(roomMap[i]->getXLoc() == roomMap[j]->getXLoc() && (roomMap[i]->getYLoc() + 1) == roomMap[j]->getYLoc()) // room below (right)
+                    temp[1] = 1;
 
-            if((getRoomX(i) - 1) == getRoomX(j) && getRoomY(i) == getRoomY(j)) // room to the left
-                temp[3] = 1;
+                if((roomMap[i]->getXLoc() - 1) == roomMap[j]->getXLoc() && roomMap[i]->getYLoc() == roomMap[j]->getYLoc()) // room to the left (above)
+                    temp[0] = 1;
 
-            roomMap[i]->setDoors(temp);
-            cout << roomMap[i]->getXLoc() << "," << roomMap[i]->getYLoc() << " doors = ";
-            for(int i = 0; i < 4; i++)
-                cout << temp[i] << ' ';
-            cout << endl;
+                roomMap[i]->setDoors(temp);
+            }
         }
     }
+
+//    for(int i = 0; i < numTemp; i++)
+//    {
+//        cout << "temp dynamic array on setting doors: ";
+//        cout << roomMap[i]->getXLoc() << "," << roomMap[i]->getYLoc() << " doors = ";
+//        for(int i = 0; i < 4; i++)
+//            cout << temp[i] << ' ';
+//        cout << endl;
+//    }
+
+    if(temp != NULL)
+        delete [] temp;
 }
 /*
  * 00000
