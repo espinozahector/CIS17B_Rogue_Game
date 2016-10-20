@@ -6,9 +6,9 @@ Checklist
 * [X]Item class
 * [X]Inv class
 * [X]Character class
-* [ ]Player class
-* [ ]Student classes
-* [ ]Enemy classes
+* [X]Player class
+* [X]Student classes
+* [X]Enemy classes
 
 Game Characters and Items
 ===============================
