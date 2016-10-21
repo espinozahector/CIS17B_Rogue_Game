@@ -4,6 +4,7 @@ Splash::Splash(QWidget *parent) : QSplashScreen(parent)
 {
     version = "<h3>Alpha Version 7.0</h3>";
     this->setPixmap(QPixmap(":/Other/images/other/Title.png"));
+    this->setFocus();
     this->show();
 }
 

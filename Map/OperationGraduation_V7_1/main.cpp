@@ -46,16 +46,17 @@ int main(int argc, char *argv[])
 
     splash->showVersion();
 
+    a.processEvents();
+
     QThread::sleep(3);
-
     splash->update1();
-
+    a.processEvents();
     QThread::sleep(3);
 
     MainWindow *mainWindow = new MainWindow;
 
     splash->update2();
-
+    a.processEvents();
     QThread::sleep(3);
 
     mainWindow->show();
