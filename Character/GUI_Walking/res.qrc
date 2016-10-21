@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/gfx">
+        <file>Programmer_Back.png</file>
+        <file>Programmer_Front.png</file>
+        <file>Programmer_LookingLeft.png</file>
+        <file>Programmer_LookingRight.png</file>
+        <file>Programmer_WalkingBack_1.png</file>
+        <file>Programmer_WalkingBack_2.png</file>
+        <file>Programmer_WalkingFront_1.png</file>
+        <file>Programmer_WalkingFront_2.png</file>
+        <file>Programmer_WalkingLeft_1.png</file>
+        <file>Programmer_WalkingLeft_2.png</file>
+        <file>Programmer_WalkingRight_1.png</file>
+        <file>Programmer_WalkingRight_2.png</file>
+        <file>movement.qml</file>
+    </qresource>
+</RCC>
