@@ -1,3 +1,13 @@
+(10/22/16 - Curt) ===================================================
+
+*added Status Window for GUI
+*contains many member functions
+ Player will need to utilize to
+ update status display
+*StatusBG.jpg in both subfolders
+ is the background image
+*XP bar and labels has a QT bug,
+ will have to work around later
 
 (10/18/16 - Jarone)=============================================
 
