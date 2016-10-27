@@ -3,12 +3,7 @@ RCC Fall 2016
 
 Checklist
 ===============================
-* [X]Item class
-* [X]Inv class
-* [X]Character class
-* [X]Player class
-* [X]Student classes
-* [X]Enemy classes
+
 
 Game Characters and Items
 ===============================
@@ -69,6 +64,32 @@ Enemy
 Items
 
 -Item class contains the values and images for item information
+
+-Items:
+	
+	*Jock
+		0 - helmet
+		1 - padded jersey
+		2 - thigh pads
+		3 - cleats
+		4 - baseball bat
+		5 - tackle dummy
+	*Programmer
+		0 - Glasses
+		1 - Hoodie
+		2 - Jeans
+		3 - Sneakers
+		4 - Computer
+		5 - Mouse
+	*Triangle guy
+		0 - Marching cap
+		1 - Uniform
+		2 - Slack
+		3 - Fancy shoes
+		4 - Metal rod
+		5 - Triangle
+		
+		
 
 -Item Stats:
 
