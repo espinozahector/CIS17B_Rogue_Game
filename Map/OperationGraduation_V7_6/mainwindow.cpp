@@ -21,6 +21,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::crMnCh()
+{
+    minichild = new MiniMapChild(ui->mdiArea);
+    minichild->setAttribute(Qt::WA_DeleteOnClose);
+    minichild->setWindowFlags(Qt::FramelessWindowHint);
+    minichild->show();
+    minichild->move(925,5);
+}
+
 void MainWindow::lgnScrn()
 {
     isLogin = true;
@@ -45,7 +54,7 @@ void MainWindow::crRmCh()
     roomchild->setWindowFlags(Qt::FramelessWindowHint);
     roomchild->show();
     roomchild->move(5,155);
-
+    crMnCh();
 }
 
 void MainWindow::crStCh()

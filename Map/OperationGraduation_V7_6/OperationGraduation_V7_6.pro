@@ -28,7 +28,8 @@ SOURCES += main.cpp \
     mainwindow.cpp \
     loginchild.cpp \
     logindia.cpp \
-    statchild.cpp
+    statchild.cpp \
+    minimapchild.cpp
 
 HEADERS  += \
     game.h \
@@ -44,7 +45,8 @@ HEADERS  += \
     mainwindow.h \
     loginchild.h \
     logindia.h \
-    statchild.h
+    statchild.h \
+    minimapchild.h
 
 FORMS    += \
     mainwindow.ui \

@@ -6,17 +6,16 @@ Game::Game(QWidget *parent) : QGraphicsView(parent)
     Map *base = new Map(9,9);
     base2 = base;
     base2->printmap();
-    //delete base;
 
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,900,540); //make the scene 800x600
     setFixedSize(900,540);
     //make the newly created scene the scene to visualize
     setScene(scene);
+
     //this is only here to make it run
     gRows = 9;
     gCols = 15;
-
 
     //add player
     player = new Player(base);

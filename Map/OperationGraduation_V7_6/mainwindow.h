@@ -5,6 +5,7 @@
 #include "roomchild.h"
 #include "loginchild.h"
 #include "statchild.h"
+#include "minimapchild.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +26,7 @@ private:
     RoomChild  *roomchild;
     LoginChild *loginchild;
     StatChild *statchild;
+    MiniMapChild *minichild;
     bool isRoom;
     bool isLogin;
     bool isStat;
@@ -32,10 +34,11 @@ private:
 private slots:
 
 public slots:
-    void lgnScrn();  //creats the login screen
-    void crRmCh();   //create the room child
-    void crStCh();   //create the status child
-    void newGame();  //create the game
+    void crMnCh();   //creates the minimap child
+    void lgnScrn();  //creates the login screen
+    void crRmCh();   //creates the room child
+    void crStCh();   //creates the status child
+    void newGame();  //creates the game
 };
 
 #endif // MAINWINDOW_H
