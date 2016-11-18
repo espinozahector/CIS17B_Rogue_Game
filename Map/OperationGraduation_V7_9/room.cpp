@@ -15,7 +15,9 @@ Room::Room()
 
 Room::Room(int x, int y, int nRows, int nCols)
 {
-    bool doors[4] = {0,0,0,0};
+    for(int i = 0; i < 4; i++)
+        doors[i] = 0;
+
     rRows = nRows;
     rCols = nCols;
     size = 0;

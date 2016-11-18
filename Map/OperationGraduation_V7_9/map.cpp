@@ -46,18 +46,15 @@ Map::~Map()
 
 void Map::DoorsChk()
 {
-    bool *temp;
+    bool temp[4];
 
     int numTemp = getNRooms();
     for(int i = 0; i < numTemp; i++)
     {
-        if(temp != NULL)
-            delete [] temp;
-        else temp = new bool[4];
-
         for(int k = 0; k < 4; k++)
+        {
             temp[k] = 0;
-
+        }
         for(int j = 0; j < numTemp; j++)
         {
             if(i != j)
@@ -88,8 +85,6 @@ void Map::DoorsChk()
 //        cout << endl;
 //    }
 
-    if(temp != NULL)
-        delete [] temp;
 }
 /*
  * 00000
