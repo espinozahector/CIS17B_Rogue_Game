@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/imgs">
+        <file>deps/enemyexam.png</file>
+        <file>deps/map.png</file>
+        <file>deps/player.png</file>
+        <file>deps/exambullet.png</file>
+    </qresource>
+    <qresource prefix="/sound">
+        <file>deps/bgmusic.mp3</file>
+    </qresource>
+</RCC>
