@@ -9,6 +9,9 @@
 
 #include "bullet.h"
 #include "enemy.h"
+#include "enemyfood.h"
+#include "enemybomb.h"
+#include "enemydebt.h"
 
 Player::Player(QGraphicsItem* parent):
     QGraphicsPixmapItem(parent)
@@ -68,7 +71,14 @@ void Player::keyPressEvent(QKeyEvent *event){
 }
 
 void Player::spawn(){
-    //Create enemy
+    //Create enemies
     Enemy *enemy = new Enemy();
+    EnemyFood *enemy2 = new EnemyFood();
+    EnemyBomb *enemy3 = new EnemyBomb();
+    EnemyDebt *enemy4 = new EnemyDebt();
+
     scene()->addItem(enemy);
+    scene()->addItem(enemy2);
+    scene()->addItem(enemy3);
+    scene()->addItem(enemy4);
 }

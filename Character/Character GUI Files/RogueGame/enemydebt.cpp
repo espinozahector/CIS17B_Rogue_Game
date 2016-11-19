@@ -1,21 +1,13 @@
-#include "enemy.h"
+#include "enemydebt.h"
 
 #include <QTimer>
 #include <QGraphicsScene>
-#include <QGraphicsRectItem>
-#include <cstdlib>
-#include <ctime>
-#include <vector>
 #include <stdlib.h>
 
-#include <QDebug>
+#include <cstdlib>
+#include <ctime>
 
-#include "bullet.h"
-#include "game.h"
-
-extern Game *GAME;
-
-Enemy::Enemy() :
+EnemyDebt::EnemyDebt() :
     QObject(), QGraphicsPixmapItem()
 {
     //Set random position
@@ -24,7 +16,7 @@ Enemy::Enemy() :
     setPos(randX,randY);
 
     //Draw enemy
-    setPixmap(QPixmap(":/imgs/deps/enemyexam.png"));
+    setPixmap(QPixmap(":/imgs/deps/enemydebt.png"));
 
     //Set speed
     vel = 6;
@@ -39,17 +31,13 @@ Enemy::Enemy() :
     //Connect timers
     connect(timer1, SIGNAL(timeout()),
             this, SLOT(idle()));
-    connect(timer2, SIGNAL(timeout()),
-            this, SLOT(fire()));
 
 
     timer1->start(200);
-    timer2->start(2000);
+
 }
 
-void Enemy::idle(){
-
-
+void EnemyDebt::idle(){
     int direction = rand()%6;
 
     for(int i = 0; i < 3; i++){
@@ -75,18 +63,4 @@ void Enemy::idle(){
                 setPos(x()+vel, y());
         }
     }
-
-}
-
-void Enemy::fire(){
-    std::vector<Bullet*> bullets(8);
-
-    for(int i = 0; i < 8; i++){
-        bullets[i] = new Bullet();
-        bullets[i]->setDir(i);
-        bullets[i]->setPos(x()+ 50, y()+50);
-        bullets[i]->setZValue(-1);
-        scene()->addItem(bullets[i]);
-    }
-
 }
