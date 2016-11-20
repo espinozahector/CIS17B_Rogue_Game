@@ -1,13 +1,13 @@
-#include "bombbullet.h"
+#include "coinblast.h"
 
 #include <QTimer>
 #include <QGraphicsScene>
 
-BombBullet::BombBullet(QGraphicsItem *parent):
+Coinblast::Coinblast(QGraphicsItem *parent):
     QObject(), QGraphicsPixmapItem(parent)
 {
     //Draw graphics
-    setPixmap(QPixmap(":/imgs/deps/boombullet2.png"));
+    setPixmap(QPixmap(":/imgs/deps/coinexplosion.png"));
     //Size 50, 50
 
     //Set timer for despawn
@@ -17,7 +17,7 @@ BombBullet::BombBullet(QGraphicsItem *parent):
     timer->start(1000);
 }
 
-void BombBullet::despawn(){
+void Coinblast::despawn(){
     scene()->removeItem(this);
     delete this;
 }

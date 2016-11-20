@@ -106,8 +106,6 @@ void Bullet::move(){
         //Remove item from scene before deleting
         scene()->removeItem(this);
         delete this;
-        qDebug() <<"Bullet deleted.";
-
     }
 }
 

@@ -6,6 +6,9 @@
 
 #include <cstdlib>
 #include <ctime>
+#include "debtbullet.h"
+
+#include <QDebug>
 
 EnemyDebt::EnemyDebt() :
     QObject(), QGraphicsPixmapItem()
@@ -19,7 +22,7 @@ EnemyDebt::EnemyDebt() :
     setPixmap(QPixmap(":/imgs/deps/enemydebt.png"));
 
     //Set speed
-    vel = 6;
+    vel = 2;
 
 
     //Create timers
@@ -31,16 +34,19 @@ EnemyDebt::EnemyDebt() :
     //Connect timers
     connect(timer1, SIGNAL(timeout()),
             this, SLOT(idle()));
+    connect(timer2, SIGNAL(timeout()),
+            this, SLOT(fire()));
 
 
     timer1->start(200);
+    timer2->start(2000);
 
 }
 
 void EnemyDebt::idle(){
     int direction = rand()%6;
 
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
         if(direction == 0){
 
             //Move enemy up
@@ -63,4 +69,11 @@ void EnemyDebt::idle(){
                 setPos(x()+vel, y());
         }
     }
+}
+
+void EnemyDebt::fire(){
+    DebtBullet *coin = new DebtBullet();
+    coin->setPos(x()+20,y()+100);
+    coin->setZValue(-1);
+    scene()->addItem(coin);
 }

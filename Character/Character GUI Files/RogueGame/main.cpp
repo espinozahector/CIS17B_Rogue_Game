@@ -1,7 +1,6 @@
 /* To do:
  *
- * Create Enemy detection box for attacking player
- * Create enemy bullet
+ * Preogram in hit detection for player
  *
 
 */

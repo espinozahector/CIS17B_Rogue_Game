@@ -16,6 +16,7 @@ public:
 
 public slots:
     void idle();
+    void fire();
 };
 
 #endif // ENEMYDEBT_H

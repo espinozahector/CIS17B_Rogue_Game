@@ -24,7 +24,9 @@ SOURCES += main.cpp \
     foodbullet.cpp \
     enemybomb.cpp \
     bombbullet.cpp \
-    enemydebt.cpp
+    enemydebt.cpp \
+    debtbullet.cpp \
+    coinblast.cpp
 
 HEADERS  += \
     bullet.h \
@@ -37,7 +39,9 @@ HEADERS  += \
     foodbullet.h \
     enemybomb.h \
     bombbullet.h \
-    enemydebt.h
+    enemydebt.h \
+    debtbullet.h \
+    coinblast.h
 
 RESOURCES += \
     res.qrc

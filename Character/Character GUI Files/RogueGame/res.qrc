@@ -9,6 +9,8 @@
         <file>deps/boombullet2.png</file>
         <file>deps/enemyboomdate.png</file>
         <file>deps/enemydebt.png</file>
+        <file>deps/debtbullet.png</file>
+        <file>deps/coinexplosion.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>deps/bgmusic.mp3</file>
