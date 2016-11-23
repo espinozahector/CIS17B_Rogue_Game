@@ -1,5 +1,6 @@
 #include "minimapchild.h"
 
+#include <QDebug>
 MiniMapChild::MiniMapChild(QWidget *parent) :
     QMdiSubWindow(parent)
 {
@@ -25,6 +26,14 @@ void MiniMapChild::setStuff()
     this->setFixedSize(350,150);
     tacobell->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     tacobell->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+}
+
+void MiniMapChild::mousePressEvent(QMouseEvent *mouseEvent)
+{
+    mouseEvent->ignore();
+//    qDebug() << mouseEvent;
+//    qDebug() << "caught the event";
+    emit miniClick();
 }
 
 MiniMapChild::~MiniMapChild()

@@ -10,8 +10,6 @@
 #include "connection.h"
 #include "registerchild.h"
 
-#include "catchchild.h"
-
 namespace Ui {
 class MainWindow;
 }
@@ -24,7 +22,7 @@ public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
     Connection createConnection();
-    void buildCatch();
+
 private:
     QGraphicsScene *scene;
 
@@ -35,7 +33,6 @@ private:
     MiniMapChild *minichild;
     Connection connection;
     RegisterChild *regchild;
-    catchchild *overlay;
 
     bool isRoom;
     bool isLogin;

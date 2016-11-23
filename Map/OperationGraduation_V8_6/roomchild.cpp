@@ -18,3 +18,10 @@ RoomChild::~RoomChild()
 {
     game->~Game();
 }
+
+void RoomChild::mousePressEvent(QMouseEvent *mouseEvent)
+{
+    mouseEvent->ignore();
+    emit gameClick();
+//    qDebug() << "game clicked";
+}

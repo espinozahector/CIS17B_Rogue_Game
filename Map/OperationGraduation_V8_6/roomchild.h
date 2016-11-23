@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QMdiSubWindow>
+#include <QMouseEvent>
 
 #include "game.h"
 
@@ -12,13 +13,19 @@ class RoomChild;
 
 class RoomChild : public QMdiSubWindow
 {
-
+    Q_OBJECT
 
 public:
     RoomChild(QWidget *parent = 0);
     ~RoomChild();
     Game *game;
+
+    void mousePressEvent(QMouseEvent *mouseEvent);
 private:
+
+signals:
+    void gameClick();
+
 };
 
 #endif // ROOMCHILD_H

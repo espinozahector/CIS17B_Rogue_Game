@@ -3,6 +3,7 @@
 
 #include <QMdiSubWindow>
 #include <QWidget>
+#include <QMouseEvent>
 
 
 namespace Ui {
@@ -31,12 +32,18 @@ class StatChild : public QMdiSubWindow
        void updateCharge(int);     //update 2nd attack charge
        int val;                //test only. to be removed.
        int maxval;           //test only. to be removed.
+
+       void mousePressEvent(QMouseEvent *mouseEvent);
    private slots:
 
        void on_pushButton_clicked(); //test only. to be removed.
 
    private:
        Ui::StatChild *ui;
+
+signals:
+       statClick();
+
    };
 
 #endif // STATCHILD_H

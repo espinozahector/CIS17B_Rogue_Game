@@ -138,6 +138,14 @@ void StatChild::updateCharge(int amount)
 {
     ui->specialBar->setValue(amount);
 }
+
+void StatChild::mousePressEvent(QMouseEvent *mouseEvent)
+{
+    mouseEvent->ignore();
+//    qDebug () << "status child clicked";
+    emit statClick();
+}
+
 //for test only. to be removed.
 void StatChild::on_pushButton_clicked()
 {

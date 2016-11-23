@@ -33,8 +33,7 @@ SOURCES += main.cpp \
     minimapchild.cpp \
     registerchild.cpp \
     registeruser.cpp \
-    mini.cpp \
-    catchchild.cpp
+    mini.cpp
 
 HEADERS  += \
     game.h \
@@ -55,8 +54,7 @@ HEADERS  += \
     connection.h \
     registerchild.h \
     registeruser.h \
-    mini.h \
-    catchchild.h
+    mini.h
 
 FORMS    += \
     mainwindow.ui \

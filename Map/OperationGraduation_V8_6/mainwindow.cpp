@@ -40,15 +40,6 @@ Connection MainWindow::createConnection()
         return connection;
 }
 
-void MainWindow::buildCatch()
-{
-
-    overlay = new catchchild(ui->mdiArea);
-    connect(overlay,SIGNAL(catchfoc()),this,SLOT(giveFocus()));
-    overlay->setAttribute(Qt::WA_DeleteOnClose);
-    overlay->setWindowFlags(Qt::FramelessWindowHint);
-    overlay->show();
-}
 
 void MainWindow::crMnCh()
 {
@@ -64,6 +55,7 @@ void MainWindow::crMnCh()
     connect(roomchild->game,SIGNAL(clearMini()),minichild,SLOT(newTacos()));
 
     connect(minichild,SIGNAL(reconnect()),this,SLOT(miniReconnect()));
+    connect(minichild,SIGNAL(miniClick()),this,SLOT(giveFocus()));
 }
 
 void MainWindow::lgnScrn()
@@ -89,12 +81,15 @@ void MainWindow::crRmCh()
     roomchild = new RoomChild(ui->mdiArea);
     roomchild->setAttribute(Qt::WA_DeleteOnClose);
     roomchild->setWindowFlags(Qt::FramelessWindowHint);
-    roomchild->setWindowModality(Qt::ApplicationModal);
+//    roomchild->setWindowModality(Qt::ApplicationModal);
     roomchild->show();
     roomchild->move(5,155);
 
+    connect(roomchild,SIGNAL(gameClick()),this,SLOT(giveFocus()));
+
     crMnCh();
-    buildCatch();
+    //buildCatch();
+    roomchild->setFocus();
     roomchild->game->player->setFocus();
 }
 
@@ -109,6 +104,8 @@ void MainWindow::crStCh()
     statchild->setFixedSize(900,150);
     statchild->show();
     statchild->move(5,0);
+
+    connect(statchild,SIGNAL(statClick()),this,SLOT(giveFocus()));
 }
 
 
@@ -251,10 +248,12 @@ void MainWindow::checkUser()
 void MainWindow::miniReconnect()
 {
     connect(roomchild->game->player,SIGNAL(eatTaco(int,int)),minichild->tacobell,SLOT(miniUpdate(int,int)));
+    giveFocus();
 }
 
 void MainWindow::giveFocus()
 {
     qDebug() << "Giving Focus";
+    roomchild->setFocus();
     roomchild->game->player->setFocus();
 }

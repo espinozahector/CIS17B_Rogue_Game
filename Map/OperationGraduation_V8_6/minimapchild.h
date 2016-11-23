@@ -4,6 +4,7 @@
 #include <QMdiSubWindow>
 #include <QDebug>
 #include <QWidget>
+#include <QMouseEvent>
 
 #include <mini.h>
 
@@ -15,10 +16,13 @@ public:
     ~MiniMapChild();
     mini *tacobell;
     void setStuff();
+protected:
+    void mousePressEvent(QMouseEvent *mouseEvent);
 public slots:
     void newTacos();
 signals:
     void reconnect();
+    void miniClick();
 
 };
 

@@ -70,6 +70,7 @@ void Game::changeRoom()
 //    scene->addItem(player);
 
     //    cout << " player z value = " << player->zValue() << endl;
+
 }
 
 void Game::changeLvl()
@@ -81,6 +82,7 @@ void Game::changeLvl()
     player->setMap(base2);
     emit clearMini();
     changeRoom();
+    player->setFocus();
 }
 
 void Game::delScene()
@@ -120,8 +122,7 @@ void Game::newScene(int x, int y)
             //position tiles
             tileSet[(i*gCols)+j].move(j,i);
 
-            tileSet[(i*gCols)+j].setAcceptTouchEvents(false);
-
+//            tileSet[(i*gCols)+j].setAcceptTouchEvents(false);
             //add to scene
             scene->addItem(tileSet+((i*gCols)+j));
         }
@@ -144,7 +145,7 @@ void Game::newScene(int x, int y)
             }
         }
     }
-    qDebug() << count;
+//    qDebug() << count;
 //    if(!holes.isEmpty())
 //    {
 //        holes.clear();
