@@ -5,7 +5,7 @@ Health::Health(QGraphicsItem *parent):
     QGraphicsTextItem(parent)
 {
     //Set hp
-    hp = 100;
+    hp = 1000000;
 
     //Draw text
     setPlainText(QString("Health: " + QString::number(hp)));

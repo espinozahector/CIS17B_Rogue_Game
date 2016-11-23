@@ -37,6 +37,7 @@ void Bullet::setDir(int direction){
 
 void Bullet::move(){
     //Check collision with player
+    /*
     QList<QGraphicsItem *> colliding_items = collidingItems();
 
     //Checks all colliding items
@@ -61,7 +62,7 @@ void Bullet::move(){
             return;
         }
     }
-
+    */
 
     //Check set direction for bullet
     switch(dir){
