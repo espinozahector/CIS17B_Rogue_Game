@@ -15,8 +15,8 @@
 
 extern Game *GAME;
 
-Enemy::Enemy() :
-    QObject(), QGraphicsPixmapItem()
+Enemy::Enemy(int level, QGraphicsItem *parent) :
+    QObject(), QGraphicsPixmapItem(parent), Character()
 {
     //Set random position
     int randX = rand() % 700;
@@ -28,6 +28,19 @@ Enemy::Enemy() :
 
     //Set speed
     vel = 6;
+
+    //Set stats
+    setName("Exam Fiend");
+    setHpMx(30+(20*level/3));
+    setHp(getHpMx());
+    setDmg(8+(8*level/3));
+    setAC(10+(5*level/3));
+    setCrit(5+(5*level/3));
+    setExp(8 + (10*level/3));
+
+    //Generate inventory
+    createInv(10);
+    getInv()->genInv(level);
 
 
     //Create timers
@@ -47,9 +60,41 @@ Enemy::Enemy() :
     timer2->start(2000);
 }
 
+
+void Enemy::setExp(int exp){
+    if(exp > 999)
+        eExp = 999;
+    else if(exp > 0)
+        eExp = exp;
+    else
+        eExp = 0;
+}
+
+int Enemy::attack1(Character &target){
+    int dmg = this->attack();
+
+    //Calculates target damage
+    return target.getHit(dmg);
+}
+
+int Enemy::attack2(Character &target){
+    int dmg = this->attack();
+
+    dmg *= 1.5;
+
+    //Calculates target damage
+    return target.getHit(dmg);
+}
+
+Item Enemy::drop(){
+    //Generates index
+    int index = rand()%getInv()->getCap();
+    //Drop random items
+    return getInv()->getItem(index);
+}
+
+
 void Enemy::idle(){
-
-
     int direction = rand()%6;
 
     for(int i = 0; i < 3; i++){

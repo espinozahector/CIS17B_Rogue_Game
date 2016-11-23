@@ -14,8 +14,8 @@
 
 extern Game *GAME;
 
-EnemyFood::EnemyFood():
-    QObject(), QGraphicsPixmapItem()
+EnemyFood::EnemyFood(int level, QGraphicsItem *parent):
+    QObject(), QGraphicsPixmapItem(parent), Character()
 {
     //Set random position
     int randX = rand() % 700;
@@ -27,6 +27,18 @@ EnemyFood::EnemyFood():
 
     //Set speed
     vel = 6;
+
+    //Set stats
+    setName("Rotted Food");
+    setHpMx(40+(30*level/3));
+    setHp(getHpMx());
+    setDmg(10+(10*level/3));
+    setAC(0+(2*level/3));
+    setCrit(5+(5*level/3));
+    setExp(10 + (10*level/3));
+
+    createInv(10);
+    getInv()->genInv(level);
 
 
     //Create timers
@@ -46,6 +58,40 @@ EnemyFood::EnemyFood():
     timer2->start(200);
 
 }
+
+
+void EnemyFood::setExp(int exp){
+    if(exp > 999)
+        eExp = 999;
+    else if(exp > 0)
+        eExp = exp;
+    else
+        eExp = 0;
+}
+
+int EnemyFood::attack1(Character &target){
+    int dmg = this->attack();
+
+    //Calculates target damage
+    return target.getHit(dmg);
+}
+
+int EnemyFood::attack2(Character &target){
+    int dmg = this->attack();
+
+    dmg *= 1.5;
+
+    //Calculates target damage
+    return target.getHit(dmg);
+}
+
+Item EnemyFood::drop(){
+    //Generates index
+    int index = rand()%getInv()->getCap();
+    //Drop random items
+    return getInv()->getItem(index);
+}
+
 
 void EnemyFood::idle(){
 

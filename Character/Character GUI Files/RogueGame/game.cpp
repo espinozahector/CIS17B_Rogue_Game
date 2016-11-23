@@ -1,5 +1,11 @@
 #include "game.h"
 
+#include "enemy.h"
+#include "enemyfood.h"
+#include "enemybomb.h"
+#include "enemydebt.h"
+
+
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 
@@ -20,15 +26,15 @@ Game::Game(QWidget *parent)
     setFixedSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
     //Create an item to put into the scene
-    player = new Player();
+    player1 = new PJock("Bob");
     //Set player coordinates(middle of the screen, bottom - player height)
-    player->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - 100);
+    player1->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - 100);
     //Enable item focus
-    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player1->setFlag(QGraphicsItem::ItemIsFocusable);
     //Sets item focus
-    player->setFocus();
+    player1->setFocus();
     //Set item on scene
-    scene->addItem(player);
+    scene->addItem(player1);
 
     //Create score
     score = new Score();
@@ -38,25 +44,30 @@ Game::Game(QWidget *parent)
     hp->setPos(hp->x(), hp->y()+25);
     scene->addItem(hp);
 
-
-
     //Spawns enemies
-    /*
-    QTimer *timer = new QTimer();
-    //Player object not preferred place to put it
-    QObject::connect(timer,SIGNAL(timeout()),
-                     player, SLOT(spawn()));
-    timer->start(2000);
-*/
-    player->spawn();
+    spawn();
 
     //Play background music
     QMediaPlayer *music = new QMediaPlayer();
     //Set sound file
-    //*Uses QUrl to access all files
     music->setMedia(QUrl("qrc:/sound/deps/bgmusic.mp3"));
     //Play music
     music->play();
 
     show();
 }
+
+void Game::spawn(){
+    //Create enemies scaled by player level
+    Enemy *enemy = new Enemy(player1->getLvl());
+    EnemyFood *enemy2 = new EnemyFood(player1->getLvl());
+    EnemyBomb *enemy3 = new EnemyBomb(player1->getLvl());
+    EnemyDebt *enemy4 = new EnemyDebt(player1->getLvl());
+
+    scene->addItem(enemy);
+    scene->addItem(enemy2);
+    scene->addItem(enemy3);
+    scene->addItem(enemy4);
+}
+
+

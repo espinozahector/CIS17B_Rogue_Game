@@ -19,14 +19,18 @@ SOURCES += main.cpp \
     game.cpp \
     health.cpp \
     score.cpp \
-    player.cpp \
     enemyfood.cpp \
     foodbullet.cpp \
     enemybomb.cpp \
     bombbullet.cpp \
     enemydebt.cpp \
     debtbullet.cpp \
-    coinblast.cpp
+    coinblast.cpp \
+    character.cpp \
+    inv.cpp \
+    item.cpp \
+    pjock.cpp \
+    player.cpp
 
 HEADERS  += \
     bullet.h \
@@ -34,14 +38,18 @@ HEADERS  += \
     game.h \
     health.h \
     score.h \
-    player.h \
     enemyfood.h \
     foodbullet.h \
     enemybomb.h \
     bombbullet.h \
     enemydebt.h \
     debtbullet.h \
-    coinblast.h
+    coinblast.h \
+    character.h \
+    inv.h \
+    item.h \
+    pjock.h \
+    player.h
 
 RESOURCES += \
     res.qrc
