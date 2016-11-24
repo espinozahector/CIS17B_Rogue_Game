@@ -5,11 +5,32 @@
 Player::Player(Map *base): QGraphicsPixmapItem()
 {
     //set graphic
-    setPixmap(QPixmap(":/Character/images/characters/Player.png"));
     playerx = 4;
     playery = 4;
     temp = base;
     isBoss2 = false;
+
+    velocity = 10;
+
+    isMovingLeft = false;
+    isMovingRight = false;
+    isMovingUp = false;
+    isMovingDown = false;
+
+    spriteCoordLeftRight = 0;
+    spriteCoordUpDown = 0;
+
+    csMajor = new QPixmap(":/Character/images/characters/cs_walking.png");
+
+    QPixmap walking = csMajor->copy(0, 120, 60, 60);
+
+    setPixmap(walking);
+
+    this->timer = new QTimer;
+
+    timer->setInterval(20);
+    timer->start();
+    connect(timer, SIGNAL(timeout()), this, SLOT(timerEvent()));
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -35,9 +56,11 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
         else if(pos().x() > 60)
         {
-            setPos(x()-10,y());
+//            setPos(x()-10,y());
+            isMovingLeft = true;
 //            std::cout << pos().x() << " " << pos().y() << std::endl;
         }
+
     }
     //Move the player Right
 //    else if (event->key() == Qt::Key_D || event->key() == Qt::Key_Right)
@@ -54,9 +77,11 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
         else if(pos().x() + 100 < 895)
         {
-            setPos(x()+10,y());
+//            setPos(x()+10,y());
+            isMovingRight = true;
 //            std::cout << pos().x() << " " << pos().y() << std::endl;
         }
+
     }
     //Move the player up
 //    else if (event->key() == Qt::Key_W || event->key() == Qt::Key_Up)
@@ -73,9 +98,11 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
         else if(pos().y() > 44)
         {
-            setPos(x(),y()-10);
+//            setPos(x(),y()-10);
+            isMovingUp = true;
 //            std::cout << pos().x() << " " << pos().y() << std::endl;
         }
+
     }
     //Move the player down
 //    else if (event->key() == Qt::Key_S || event->key() == Qt::Key_Down)
@@ -92,10 +119,148 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
         else if(pos().y() + 100 < 530)
         {
-            setPos(x(),y()+10);
+//            setPos(x(),y()+10);
+            isMovingDown = true;
 //            std::cout << pos().x() << " " << pos().y() << std::endl;
         }
+
     }
+}
+
+void Player::keyReleaseEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_A)
+    {
+        isMovingLeft = false;
+        QPixmap walking = csMajor->copy(0, 60, 60, 60);
+        this->setPixmap(walking);
+        restartFrame();
+
+
+    } else if (event->key() == Qt::Key_D)
+    {
+        isMovingRight = false;
+        QPixmap walking = csMajor->copy(0, 180, 60, 60);
+        this->setPixmap(walking);
+        restartFrame();
+
+
+    } else if(event->key() == Qt::Key_W)
+    {
+        isMovingUp = false;
+        QPixmap walking = csMajor->copy(0, 0, 60, 60);
+        this->setPixmap(walking);
+        restartFrame();
+
+
+    } else if (event->key() == Qt::Key_S)
+    {
+        isMovingDown = false;
+        QPixmap walking = csMajor->copy(0, 120, 60, 60);
+        this->setPixmap(walking);
+        restartFrame();
+
+    }
+}
+
+void Player::timerEvent()
+{
+    char direct;
+
+    if (isMovingLeft)
+    {
+        direct = 'l';
+        QPixmap walking = csMajor->copy(spriteCoordLeftRight, 60, 60, 60);
+        this->setPixmap(walking);
+        setPos(x()-velocity,y());
+        nextFrame(direct);
+    }
+    else if (isMovingRight)
+    {
+        direct = 'r';
+        QPixmap walking = csMajor->copy(spriteCoordLeftRight, 180, 60, 60);
+        this->setPixmap(walking);
+        setPos(x()+velocity,y());
+        nextFrame(direct);
+    }
+    else if (isMovingUp)
+    {
+        direct = 'u';
+        QPixmap walking = csMajor->copy(spriteCoordUpDown, 0, 60, 60);
+        this->setPixmap(walking);
+        setPos(x(),y()-velocity);
+        nextFrame(direct);
+    }
+    else if (isMovingDown)
+    {
+        direct = 'd';
+        QPixmap walking = csMajor->copy(spriteCoordUpDown, 120, 60, 60);
+        this->setPixmap(walking);
+        setPos(x(),y()+velocity);
+        nextFrame(direct);
+    }
+
+}
+
+void Player::nextFrame(char direction)
+{
+    switch (direction)
+    {
+        case 'l': {
+            if (spriteCoordLeftRight == 480)
+            {
+              spriteCoordLeftRight = 0;
+
+            }
+            else
+            {
+              spriteCoordLeftRight += 60;
+
+            }
+            break;
+        }
+        case 'r': {
+            if (spriteCoordLeftRight == 480)
+            {
+                spriteCoordLeftRight = 0;
+
+            }
+            else
+            {
+                spriteCoordLeftRight += 60;
+
+            }
+            break;
+        }
+        case 'u': {
+            if (spriteCoordUpDown == 540)
+            {
+              spriteCoordUpDown = 0;
+            }
+            else
+            {
+              spriteCoordUpDown += 60;
+            }
+            break;
+        }
+        case 'd': {
+            if (spriteCoordUpDown == 540)
+            {
+              spriteCoordUpDown = 0;
+            }
+            else
+            {
+              spriteCoordUpDown += 60;
+            }
+            break;
+        }
+    }
+}
+
+void Player::restartFrame()
+{
+    spriteCoordLeftRight = 0;
+    spriteCoordUpDown = 0;
 }
 
 void Player::trapDoor(int y,int x)

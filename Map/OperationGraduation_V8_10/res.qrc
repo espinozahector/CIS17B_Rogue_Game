@@ -2,6 +2,7 @@
     <qresource prefix="/Character">
         <file>images/characters/characterBase.png</file>
         <file>images/characters/Player.png</file>
+        <file>images/characters/cs_walking.png</file>
     </qresource>
     <qresource prefix="/Map">
         <file>images/map/ClassFloor2.jpg</file>
