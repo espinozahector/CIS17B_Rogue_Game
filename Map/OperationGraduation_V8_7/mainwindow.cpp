@@ -176,7 +176,7 @@ void MainWindow::validate()
     QByteArray hashed;
     hashed.append(regchild->nUser->getOne());
     hashed = QCryptographicHash::hash(hashed,QCryptographicHash::Sha1);
-    //qDebug() << "hashed:" << hashed;
+    qDebug() << "hashed:" << hashed;
     if(!connection.connected) connection = createConnection();
     if ( !connection.connected ){
             regchild->nUser->setEChck(tr("No connection found."));
@@ -215,7 +215,7 @@ void MainWindow::checkUser()
     QByteArray hashed;
     hashed.append(loginchild->login->getOne());
     hashed = QCryptographicHash::hash(hashed,QCryptographicHash::Sha1);
-//    qDebug() << "hashed:" << hashed;
+    qDebug() << "hashed:" << hashed;
     if(!connection.connected) connection = createConnection();
     if ( !connection.connected ){
             loginchild->login->setEChck(tr("No connection found."));
@@ -228,7 +228,8 @@ void MainWindow::checkUser()
             QString uName = query.value(0).toString();
             if(uName == loginchild->login->getTwo())
             {
-                if(query.value(1).toByteArray().constData() == hashed) found = true;
+                qDebug() << query.value(1).toByteArray();
+                if(query.value(1).toByteArray() == hashed) found = true;
                 break;
             }
         }
