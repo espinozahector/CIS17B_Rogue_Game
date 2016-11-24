@@ -3,6 +3,23 @@ RCC Fall 2016
 
 Checklist
 ===============================
+Player
+* A single normal attack
+* Movement and animation
+
+Items/Inventory
+* Inhert QGraphricspixmap
+* Inventory widget
+** Render item image in widget
+
+Enemies
+* 
+
+References
+===============================
+* GUI qt tutorial
+*** only up to ep 8 is necessary
+*** https://www.youtube.com/watch?v=8ntEQpg7gck&index=2&list=PLMgDVIa0Pg8WrI9WmZR09xAbfXyfkqKWy
 
 
 Game Characters and Items
