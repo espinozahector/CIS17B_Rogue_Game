@@ -6,6 +6,6 @@
 * Stuff that needs to happen ASAP
   - Fix Character Movement
   - Incorporate Character to Map
-    -Connect Character to Status Widget
-    -Inventory?
+    - Connect Character to Status Widget
+    - Inventory?
   - Connect a Network (hi scores in real time?, UDP?)
