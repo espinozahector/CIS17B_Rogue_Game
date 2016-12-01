@@ -6,7 +6,7 @@ using namespace std;
 
 LoginDialog::LoginDialog(QWidget *parent) : QGraphicsView(parent)
 {
-    udpSocket.bind(5824);
+    udpSocket.bind(5045);
 
     connect(&udpSocket, SIGNAL(readyRead()),this, SLOT(getConnect()));
 
@@ -108,7 +108,7 @@ LoginDialog::LoginDialog(QWidget *parent) : QGraphicsView(parent)
     cnnct->setGeometry(95,325,205,25);
     cnnctd->setGeometry(320,325,50,20);
 
-    connect(cnnct,SIGNAL(clicked(bool)),this,SLOT(network()));
+    connect(cnnct,SIGNAL(clicked(bool)),this,SLOT(sendData()));
 }
 
 void LoginDialog::enableSubmitButton()
@@ -132,7 +132,9 @@ void LoginDialog::sendData()
     out.setVersion(QDataStream::Qt_4_3);
     out << color2;
 
-    udpSocket2.writeDatagram(datagram, QHostAddress::setAddress(ipAddrss->text()), 5824);
+    QHostAddress address;
+    address.setAddress(ipAddrss->text());
+    udpSocket2.writeDatagram(datagram, address, 5045);
 }
 
 void LoginDialog::getConnect()
@@ -152,4 +154,5 @@ void LoginDialog::getConnect()
     in >> color;
 
     cnnctd->setStyleSheet(color);
+
 }

@@ -12,6 +12,7 @@
 #include <QGraphicsView>
 #include <QGraphicsEllipseItem>
 #include <QUdpSocket>
+#include <QHostAddress>
 
 class MainWindow;
 class QLabel;
@@ -57,6 +58,8 @@ private slots:
     void sendData();
     void getConnect();
 
+signals:
+    void receive();
     /*
      * for checking the connection
      *  when the login dialog appears, check the connection
