@@ -1,11 +1,8 @@
 # CIS17B_Rogue_Game
 * RCC Fall 2016
 
-3 weeks remain
+2 weeks remain
 
-* Stuff that needs to happen ASAP
-  - Fix Character Movement
-  - Incorporate Character to Map
-    - Connect Character to Status Widget
-    - Inventory?
-  - Connect a Network (hi scores in real time?, UDP?)
+- We got a network to work!!!! 
+  - It's a small network feat but it's huge! (was able to change a color of a label on the other person's computer)
+  - You MUST open the port 5045 in your router settings. If you need help with this, let one of us know.
