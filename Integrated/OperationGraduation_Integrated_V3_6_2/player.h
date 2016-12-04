@@ -70,6 +70,7 @@ class Player : public QObject, public QGraphicsPixmapItem, public Character
 
         QPixmap *csMajor;
         QPixmap *binaryAttack;
+        QPixmap *binaryStanding;
 
         //holds values to move to the next frame
         int spriteCoordLeftRight;

@@ -52,6 +52,7 @@ Player::Player(Map *base):Character("",0,1,1,1),QGraphicsPixmapItem()
 
     csMajor = new QPixmap(":/Character/images/characters/cs_walking.png");
     binaryAttack = new QPixmap(":/Character/images/characters/walkingBinaryAttack.png");
+    binaryStanding = new QPixmap(":/Character/images/characters/CSMajor_BinaryAttack_v3.png");
 
     QPixmap walking = csMajor->copy(0, 120, 60, 60);
     setPixmap(walking);
@@ -192,44 +193,74 @@ void Player::keyPressEvent(QKeyEvent *event)
         pressedKeys += ((QKeyEvent*)event)->key();
     }
 
+//    if(!pressedKeys.size() >2 ){
+        if (pressedKeys.contains(Qt::Key_A) && pressedKeys.contains(Qt::Key_Left))
+        {
+            spriteAttackY = 120;
+            spriteAttackX = 0;
+            isMovingLeft = true;
+            isAttacking = true;
+            emit newBullet(1);
+        }
+        else if (pressedKeys.contains(Qt::Key_D) && pressedKeys.contains(Qt::Key_Right))
+        {
+            spriteAttackY = 360;
+            spriteAttackX = 0;
+            isMovingRight = true;
+            isAttacking = true;
+            emit newBullet(2);
+        }
+        else if (pressedKeys.contains(Qt::Key_W) && pressedKeys.contains(Qt::Key_Up))
+        {
+            spriteAttackY = 0;
+            spriteAttackX = 0;
+            isMovingUp = true;
+            isAttacking = true;
+            emit newBullet(3);
+        }
+        else if (pressedKeys.contains(Qt::Key_S) && pressedKeys.contains(Qt::Key_Down))
+        {
+            spriteAttackY = 240;
+            spriteAttackX = 0;
+            isMovingDown = true;
+            isAttacking = true;
+            emit newBullet(4);
+        }
+        else if (event->key() == Qt::Key_Left)
+        {
+            spriteAttackX = 0;
+            spriteAttackY = 0;
+            isAttacking = true;
+            emit newBullet(1);
+        }
+        else if (event->key() == Qt::Key_Right)
+        {
+            spriteAttackX = 0;
+            spriteAttackY = 0;
+            isAttacking = true;
+            emit newBullet(2);
+        }
+        else if (event->key() == Qt::Key_Up)
+        {
+            spriteAttackX = 0;
+            spriteAttackY = 0;
+            isAttacking = true;
+            emit newBullet(3);
+        }
+        else if (event->key() == Qt::Key_Down)
+        {
+            spriteAttackX = 0;
+            spriteAttackY = 0;
+            isAttacking = true;
+            emit newBullet(4);
+        }
 
-    if (pressedKeys.contains(Qt::Key_A) && pressedKeys.contains(Qt::Key_Left))
-    {
-        spriteAttackY = 120;
-        spriteAttackX = 0;
-        isMovingLeft = true;
-        isAttacking = true;
-        emit newBullet(1);
-    }
-    else if (pressedKeys.contains(Qt::Key_D) && pressedKeys.contains(Qt::Key_Right))
-    {
-        spriteAttackY = 360;
-        spriteAttackX = 0;
-        isMovingRight = true;
-        isAttacking = true;
-        emit newBullet(2);
-    }
-    else if (pressedKeys.contains(Qt::Key_W) && pressedKeys.contains(Qt::Key_Up))
-    {
-        spriteAttackY = 0;
-        spriteAttackX = 0;
-        isMovingUp = true;
-        isAttacking = true;
-        emit newBullet(3);
-    }
-    else if (pressedKeys.contains(Qt::Key_S) && pressedKeys.contains(Qt::Key_Down))
-    {
-        spriteAttackY = 240;
-        spriteAttackX = 0;
-        isMovingDown = true;
-        isAttacking = true;
-        emit newBullet(4);
-    }
+//    }
 
 
     //move the player left
 //    if(event->key() == Qt::Key_A || event->key() == Qt::Key_Left)
-    if(event->key() == Qt::Key_A)
+    else if(event->key() == Qt::Key_A)
     {
         trapDoor(-1,0);
         isAttacking = false;
@@ -316,17 +347,20 @@ void Player::keyPressEvent(QKeyEvent *event)
 
     }
 
+
 }
 
 void Player::keyReleaseEvent(QKeyEvent *event)
 {
-    pressedKeys.clear();
-//    pressedKeys -= ((QKeyEvent*)event)->key();
+//    pressedKeys.clear();
+//   pressedKeys -= ((QKeyEvent*)event)->key();
 
     if (!event->isAutoRepeat()) {
 
         if (event->key() == Qt::Key_A)
         {
+            spriteAttackX = 0;
+            spriteAttackY = 0;
             isMovingLeft = false;
             QPixmap walking = csMajor->copy(0, 60, 60, 60);
             this->setPixmap(walking);
@@ -337,6 +371,8 @@ void Player::keyReleaseEvent(QKeyEvent *event)
 
         } else if (event->key() == Qt::Key_D)
         {
+            spriteAttackX = 0;
+            spriteAttackY = 0;
             isMovingRight = false;
             QPixmap walking = csMajor->copy(0, 180, 60, 60);
             this->setPixmap(walking);
@@ -347,6 +383,8 @@ void Player::keyReleaseEvent(QKeyEvent *event)
 
         } else if(event->key() == Qt::Key_W)
         {
+            spriteAttackX = 0;
+            spriteAttackY = 0;
             isMovingUp = false;
             QPixmap walking = csMajor->copy(0, 0, 60, 60);
             this->setPixmap(walking);
@@ -357,14 +395,17 @@ void Player::keyReleaseEvent(QKeyEvent *event)
 
         } else if (event->key() == Qt::Key_S)
         {
+
+            spriteAttackX = 0;
+            spriteAttackY = 0;
             isMovingDown = false;
             QPixmap walking = csMajor->copy(0, 120, 60, 60);
             this->setPixmap(walking);
             refreshStatCh();    //TEST TO BE REMOVED
             levelup(1);         //TEST TO BE REMOVED
             restartFrame();
-
         }
+        pressedKeys.clear();
     }
 }
 
@@ -469,7 +510,15 @@ void Player::timerEvent2()
 {
     if (isAttacking)
     {
-        if (isMovingLeft)
+        if(!isMovingLeft && !isMovingRight && !isMovingUp && !isMovingDown)
+        {
+            QPixmap attacking = binaryStanding->copy(spriteAttackX, spriteAttackY, 60, 60);
+            this->setPixmap(attacking);
+
+            direct = 't';
+            nextFrame(direct);
+        }
+        else if (isMovingLeft)
         {
             QPixmap attacking = binaryAttack->copy(spriteAttackX, spriteAttackY, 60, 60);
             this->setPixmap(attacking);
@@ -599,14 +648,14 @@ void Player::nextFrame(char direction)
             break;
         }
         case 'l': {
-            if (spriteAttackY == 180 && spriteAttackX == 480)
+            if (spriteAttackY >= 180 && spriteAttackX >= 480)
             {
                 isMovingLeft = false;
                 isAttacking = false;
                 spriteAttackX = 0;
                 spriteAttackY = 120;
             }
-            else if (spriteAttackY == 120 && spriteAttackX == 480)
+            else if (spriteAttackY >= 120 && spriteAttackX >= 480)
             {
                 spriteAttackY = 180;
                 spriteAttackX = 0;
@@ -618,14 +667,14 @@ void Player::nextFrame(char direction)
             break;
         }
         case 'r': {
-            if (spriteAttackY == 420 && spriteAttackX == 480)
+            if (spriteAttackY >= 420 && spriteAttackX >= 480)
             {
                 isMovingRight = false;
                 isAttacking = false;
                 spriteAttackX = 0;
                 spriteAttackY = 360;
             }
-            else if (spriteAttackY == 360 && spriteAttackX == 480)
+            else if (spriteAttackY >= 360 && spriteAttackX >= 480)
             {
                 spriteAttackY = 420;
                 spriteAttackX = 0;
@@ -637,14 +686,14 @@ void Player::nextFrame(char direction)
             break;
         }
         case 'u': {
-            if (spriteAttackY == 60 && spriteAttackX == 540)
+            if (spriteAttackY >= 60 && spriteAttackX >= 540)
             {
                 isMovingUp = false;
                 isAttacking = false;
                 spriteAttackX = 0;
                 spriteAttackY = 0;
             }
-            else if (spriteAttackY == 0 && spriteAttackX == 540)
+            else if (spriteAttackY >= 0 && spriteAttackX >= 540)
             {
                 spriteAttackY = 60;
                 spriteAttackX = 0;
@@ -656,14 +705,16 @@ void Player::nextFrame(char direction)
             break;
         }
         case 'b': {
-            if (spriteAttackY == 300 && spriteAttackX == 540)
+        qDebug() << spriteAttackX;
+        qDebug() << spriteAttackY;
+            if (spriteAttackY >= 300 && spriteAttackX >= 480)
             {
                 isMovingDown = false;
                 isAttacking = false;
                 spriteAttackX = 0;
                 spriteAttackY = 240;
             }
-            else if (spriteAttackY == 240 && spriteAttackX == 540)
+            else if (spriteAttackY >= 240 && spriteAttackX >= 480)
             {
                 spriteAttackY = 300;
                 spriteAttackX = 0;
@@ -672,6 +723,25 @@ void Player::nextFrame(char direction)
             {
                 spriteAttackX += 60;
             }
+        }
+
+        case 't': {
+
+            if (spriteAttackY == 60 && spriteAttackX >= 720) {
+                isAttacking = false;
+                spriteAttackX = 0;
+                spriteAttackY = 0;
+            }
+            else if (spriteAttackY == 0 && spriteAttackX >= 720)
+            {
+                spriteAttackY = 60;
+                spriteAttackX = 0;
+            }
+            else
+            {
+                spriteAttackX += 60;
+            }
+            break;
         }
 
     }
