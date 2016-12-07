@@ -22,12 +22,12 @@ Enemy::Enemy(int level, QGraphicsItem *parent) :
     int randX = (rand()%610)+90;
     int randY = (rand()%250)+90;
     setPos(randX,randY);
-
+    setZValue(9);
 
 
     //Draw enemy
     setPixmap(QPixmap(":/Character/images/characters/enemyexam.png"));
-    setZValue(9);
+
 
     //Set speed
     vel = 6;
@@ -61,8 +61,7 @@ Enemy::Enemy(int level, QGraphicsItem *parent) :
 
     timer1->start(200);
 
-    int bullettimer = (rand()%2000)+1500;
-
+    int bullettimer = (rand()%1000)+1500;
     timer2->start(bullettimer);
 }
 Enemy::~Enemy(){

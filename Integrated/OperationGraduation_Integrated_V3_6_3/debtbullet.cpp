@@ -17,7 +17,7 @@ DebtBullet::DebtBullet(QGraphicsItem* parent):
     QTimer *timer = new QTimer();
     connect(timer, SIGNAL(timeout()),
             this,SLOT(explode()));
-    timer->start(5000);
+    timer->start(4000);
 
 
 
@@ -26,7 +26,7 @@ DebtBullet::DebtBullet(QGraphicsItem* parent):
 void DebtBullet::explode(){
     Coinblast *blast = new Coinblast();
     blast->setPos(x()-10, y()-10);
-    blast->setZValue(-1);
+    blast->setZValue(1);
     scene()->addItem(blast);
 
     scene()->removeItem(this);

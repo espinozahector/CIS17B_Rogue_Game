@@ -18,9 +18,10 @@ EnemyFood::EnemyFood(int level, QGraphicsItem *parent):
     QObject(), QGraphicsPixmapItem(parent), Character()
 {
     //Set random position
-    int randX = rand() % 700;
-    int randY = rand() % 500;
+    int randX = (rand()%610)+90;
+    int randY = (rand()%250)+90;
     setPos(randX,randY);
+    setZValue(9);
 
     //Draw enemy
     setPixmap(QPixmap(":/Character/images/characters/enemyfood.png"));
@@ -102,12 +103,12 @@ void EnemyFood::idle(){
         if(direction == 0){
 
             //Move enemy up
-            if(y()-50 > 0)
+            if(y()-40 > 0)
                 setPos(x(), y()-vel);
         }
         else if(direction == 1){
             //Move enemy down
-            if(y()+150 < 600)
+            if(y()+150 < 530)
                 setPos(x(), y()+vel);
         }
         else if(direction == 2){
@@ -117,7 +118,7 @@ void EnemyFood::idle(){
         }
         else if(direction == 3){
             //Move enemy right
-            if(x()+150 < 800)
+            if(x()+150 < 895)
                 setPos(x()+vel, y());
         }
     }

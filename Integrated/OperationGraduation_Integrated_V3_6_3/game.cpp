@@ -113,6 +113,9 @@ void Game::playerAttack(int dir)
 
 void Game::delScene()
 {
+    //Despawn enemies
+    despawn();
+
     QList<QGraphicsItem*> items = scene->items();
 //    std::cout << items.size() << std::endl;
     for (int i = 1; i < items.size(); i++) {
@@ -120,9 +123,6 @@ void Game::delScene()
         scene->removeItem(items[i]);
         delete items[i];
     }
-
-    //Despawn enemies
-    despawn();
 }
 
 void Game::newScene(int x, int y)
@@ -161,8 +161,8 @@ void Game::newScene(int x, int y)
     setObstacles();
 
     //Create enemies
-    int enemy_max = rand()%5;
-    enmy_Exam.resize(enemy_max);
+    int enemy_max = rand()%6;
+    createEnemies(enemy_max);
     spawn();
 
     if(player->isBoss2)
@@ -198,42 +198,111 @@ void Game::newScene(int x, int y)
 }
 
 void Game::createEnemies(int max){
+    //Enemy vector size
+    int enmy1=0;//Exam
+    int enmy2=0;//Food
+    int enmy3=0;//Bomb
+    int enmy4=0;//Debt
+
 
     for(int i = 0; i < max; i++){
         int enemy_type = rand()%4;
 
         switch(enemy_type){
             case 0:
+                enmy1++;
                 break;
 
             case 1:
+                enmy2++;
                 break;
 
             case 2:
+                //enmy3++;
                 break;
 
-            case 3:
+            default:
+                enmy4++;
                 break;
         }
-
-
     }
 
+    enmy_Exam.resize(enmy1);
+    enmy_Food.resize(enmy2);
+    enmy_Bomb.resize(enmy3);
+    enmy_Debt.resize(enmy4);
 }
 
 void Game::spawn(){
     //Create enemies scaled by player level
-    for(int i = 0 ; i < enmy_Exam.size(); i++){
-        enmy_Exam[i] = new Enemy(player->getLvl());
-        scene->addItem(enmy_Exam[i]);
+
+    if(enmy_Exam.size() > 0){
+        for(int i = 0 ; i < enmy_Exam.size(); i++){
+            enmy_Exam[i] = new Enemy(player->getLvl());
+            scene->addItem(enmy_Exam[i]);
+        }
     }
+
+    if(enmy_Food.size() > 0){
+        for(int i = 0 ; i < enmy_Food.size(); i++){
+            enmy_Food[i] = new EnemyFood(player->getLvl());
+            scene->addItem(enmy_Food[i]);
+        }
+    }
+
+    if(enmy_Bomb.size() > 0){
+        for(int i = 0 ; i < enmy_Bomb.size(); i++){
+            enmy_Bomb[i] = new EnemyBomb(player->getLvl());
+            scene->addItem(enmy_Bomb[i]);
+        }
+    }
+
+    if(enmy_Debt.size() > 0){
+        for(int i = 0 ; i < enmy_Debt.size(); i++){
+            enmy_Debt[i] = new EnemyDebt(player->getLvl());
+            scene->addItem(enmy_Debt[i]);
+        }
+    }
+
 }
 
 void Game::despawn(){
-    for(int i = 0; i < enmy_Exam.size(); i++){
-        enmy_Exam[i] = NULL;
-        delete enmy_Exam[i];
+
+    if(enmy_Exam.size() > 0){
+        for(int i = 0; i < enmy_Exam.size(); i++){
+            scene->removeItem(enmy_Exam[i]);
+
+            //enmy_Exam[i] = NULL;
+            delete enmy_Exam[i];
+        }
     }
 
+    if(enmy_Food.size() > 0){
+        for(int i = 0; i < enmy_Food.size(); i++){
+            scene->removeItem(enmy_Food[i]);
+            //enmy_Food[i] = NULL;
+            delete enmy_Food[i];
+        }
+    }
+
+    if(enmy_Bomb.size() > 0){
+        for(int i = 0; i < enmy_Bomb.size(); i++){
+            if(enmy_Bomb[i] != NULL){
+                scene->removeItem(enmy_Bomb[i]);
+
+                enmy_Bomb[i] = NULL;
+                delete enmy_Bomb[i];
+            }
+        }
+    }
+
+    if(enmy_Debt.size() > 0){
+        for(int i = 0; i < enmy_Debt.size(); i++){
+            scene->removeItem(enmy_Debt[i]);
+
+            //enmy_Debt[i] = NULL;
+            delete enmy_Debt[i];
+        }
+    }
     qDebug() <<"Enemies deleted";
 }
