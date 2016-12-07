@@ -18,6 +18,7 @@ private:
 
 public:
     Enemy(int, QGraphicsItem *parent = 0);
+    ~Enemy();
 
     //Sets exp worth(exp)
     //Accept values 0-999

@@ -23,8 +23,11 @@ Enemy::Enemy(int level, QGraphicsItem *parent) :
     int randY = rand() % 500;
     setPos(randX,randY);
 
+    qDebug() << "Enemy Created";
+
     //Draw enemy
     setPixmap(QPixmap(":/imgs/deps/enemyexam.png"));
+    setZValue(9);
 
     //Set speed
     vel = 6;
@@ -130,7 +133,7 @@ void Enemy::fire(){
         bullets[i] = new Bullet();
         bullets[i]->setDir(i);
         bullets[i]->setPos(x()+ 50, y()+50);
-        bullets[i]->setZValue(-1);
+        bullets[i]->setZValue(9);
         scene()->addItem(bullets[i]);
     }
 

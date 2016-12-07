@@ -19,12 +19,15 @@ Enemy::Enemy(int level, QGraphicsItem *parent) :
     QObject(), QGraphicsPixmapItem(parent), Character()
 {
     //Set random position
-    int randX = rand() % 700;
-    int randY = rand() % 500;
+    int randX = (rand()%610)+90;
+    int randY = (rand()%250)+90;
     setPos(randX,randY);
+
+
 
     //Draw enemy
     setPixmap(QPixmap(":/Character/images/characters/enemyexam.png"));
+    setZValue(9);
 
     //Set speed
     vel = 6;
@@ -57,9 +60,13 @@ Enemy::Enemy(int level, QGraphicsItem *parent) :
 
 
     timer1->start(200);
-    timer2->start(2000);
-}
 
+    int bullettimer = (rand()%2000)+1500;
+
+    timer2->start(bullettimer);
+}
+Enemy::~Enemy(){
+}
 
 void Enemy::setExp(int exp){
     if(exp > 999)
@@ -95,28 +102,28 @@ Item Enemy::drop(){
 */
 
 void Enemy::idle(){
-    int direction = rand()%6;
+    int direction = rand()% 6;
 
     for(int i = 0; i < 3; i++){
         if(direction == 0){
 
             //Move enemy up
-            if(y()-50 > 0)
+            if(y() - 40 > 0)
                 setPos(x(), y()-vel);
         }
         else if(direction == 1){
             //Move enemy down
-            if(y()+150 < 600)
+            if(y()+150 < 530)
                 setPos(x(), y()+vel);
         }
         else if(direction == 2){
             //Move enemy left
-            if(x()-50 > 0)
+            if(x()-55 > 0)
                 setPos(x()-vel, y());
         }
         else if(direction == 3){
             //Move enemy right
-            if(x()+150 < 800)
+            if(x()+150 < 895)
                 setPos(x()+vel, y());
         }
     }
@@ -130,7 +137,7 @@ void Enemy::fire(){
         bullets[i] = new Bullet();
         bullets[i]->setDir(i);
         bullets[i]->setPos(x()+ 50, y()+50);
-        bullets[i]->setZValue(-1);
+        bullets[i]->setZValue(1);
         scene()->addItem(bullets[i]);
     }
 

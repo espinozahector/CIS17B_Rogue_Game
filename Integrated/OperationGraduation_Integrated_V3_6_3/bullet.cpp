@@ -102,8 +102,8 @@ void Bullet::move(){
     }
 
     //if item moves offscren
-    if(pos().y()-25 < 0 || pos().y() + 50 > 600
-            || pos().x() - 25 < 0 || pos().x()+50 > 800){
+    if(pos().y()-40 < 0 || pos().y() + 50 > 530
+            || pos().x() - 50 < 0 || pos().x()+50 > 890){
         //Remove item from scene before deleting
         scene()->removeItem(this);
         delete this;

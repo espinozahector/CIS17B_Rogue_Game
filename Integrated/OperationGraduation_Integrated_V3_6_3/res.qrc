@@ -6,6 +6,15 @@
         <file>images/characters/binaryBullet.png</file>
         <file>images/characters/CSMajor_BinaryAttack_v3.png</file>
         <file>images/characters/walkingBinaryAttack.png</file>
+        <file>images/characters/enemyexam.png</file>
+        <file>images/characters/exambullet.png</file>
+        <file>images/characters/boombullet2.png</file>
+        <file>images/characters/coinexplosion.png</file>
+        <file>images/characters/debtbullet.png</file>
+        <file>images/characters/enemyboomdate.png</file>
+        <file>images/characters/enemydebt.png</file>
+        <file>images/characters/enemyfood.png</file>
+        <file>images/characters/foodbullet.png</file>
     </qresource>
     <qresource prefix="/Map">
         <file>images/map/ClassFloor2.jpg</file>

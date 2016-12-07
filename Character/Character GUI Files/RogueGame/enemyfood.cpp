@@ -126,6 +126,6 @@ void EnemyFood::idle(){
 void EnemyFood::fire(){
     Foodbullet *bullet = new Foodbullet();
     bullet->setPos(x()+50, y()+50);
-    bullet->setZValue(-1); //Set behind object
+    bullet->setZValue(9); //Set behind object
     scene()->addItem(bullet);
 }

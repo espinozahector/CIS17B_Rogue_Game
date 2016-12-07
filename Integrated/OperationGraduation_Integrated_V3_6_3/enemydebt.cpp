@@ -120,6 +120,6 @@ void EnemyDebt::idle(){
 void EnemyDebt::fire(){
     DebtBullet *coin = new DebtBullet();
     coin->setPos(x()+20,y()+100);
-    coin->setZValue(-1);
+    coin->setZValue(1);
     scene()->addItem(coin);
 }

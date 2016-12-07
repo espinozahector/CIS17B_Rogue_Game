@@ -9,12 +9,21 @@
 #include <QMediaPlaylist>
 #include <QList>
 #include <QGraphicsItem>
+#include <cstdlib>
+#include <vector>
 
 //User Libraries
 #include "tile.h"
 #include "map.h"
 #include "player.h"
 #include "binarybullet.h"
+
+
+#include "enemy.h"
+#include "enemyfood.h"
+#include "enemybomb.h"
+#include "enemydebt.h"
+
 
 #include <iostream>
 using namespace  std;
@@ -34,6 +43,13 @@ public:
     QGraphicsScene *scene;
     Player *player;
 
+    //Enemy types
+    vector<Enemy*> enmy_Exam;
+    vector<EnemyFood*> enmy_Food;
+    vector<EnemyBomb*> enmy_Bomb;
+    vector<EnemyDebt*> enmy_Debt;
+
+
     QList<QGraphicsItem*> obstacles;
     void setObstacles();
 
@@ -46,6 +62,11 @@ public slots:
     void changeRoom();
     void changeLvl();
     void playerAttack(int);
+
+    //Spawn enemy
+    void createEnemies(int);
+    void spawn();
+    void despawn();
 };
 
 #endif // GAME_H

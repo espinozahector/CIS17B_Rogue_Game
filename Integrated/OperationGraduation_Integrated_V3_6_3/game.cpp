@@ -1,5 +1,8 @@
 #include "game.h"
 
+
+#include <typeinfo>
+
 Game::Game(QWidget *parent) : QGraphicsView(parent)
 {
     //create the map
@@ -113,9 +116,13 @@ void Game::delScene()
     QList<QGraphicsItem*> items = scene->items();
 //    std::cout << items.size() << std::endl;
     for (int i = 1; i < items.size(); i++) {
+
         scene->removeItem(items[i]);
         delete items[i];
     }
+
+    //Despawn enemies
+    despawn();
 }
 
 void Game::newScene(int x, int y)
@@ -153,6 +160,11 @@ void Game::newScene(int x, int y)
 
     setObstacles();
 
+    //Create enemies
+    int enemy_max = rand()%5;
+    enmy_Exam.resize(enemy_max);
+    spawn();
+
     if(player->isBoss2)
     {
         Tile *hatch = new Tile();
@@ -185,3 +197,43 @@ void Game::newScene(int x, int y)
     //    qDebug() << holes.size() << endl;
 }
 
+void Game::createEnemies(int max){
+
+    for(int i = 0; i < max; i++){
+        int enemy_type = rand()%4;
+
+        switch(enemy_type){
+            case 0:
+                break;
+
+            case 1:
+                break;
+
+            case 2:
+                break;
+
+            case 3:
+                break;
+        }
+
+
+    }
+
+}
+
+void Game::spawn(){
+    //Create enemies scaled by player level
+    for(int i = 0 ; i < enmy_Exam.size(); i++){
+        enmy_Exam[i] = new Enemy(player->getLvl());
+        scene->addItem(enmy_Exam[i]);
+    }
+}
+
+void Game::despawn(){
+    for(int i = 0; i < enmy_Exam.size(); i++){
+        enmy_Exam[i] = NULL;
+        delete enmy_Exam[i];
+    }
+
+    qDebug() <<"Enemies deleted";
+}
