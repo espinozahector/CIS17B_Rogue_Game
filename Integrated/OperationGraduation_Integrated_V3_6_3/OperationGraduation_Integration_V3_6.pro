@@ -45,7 +45,8 @@ SOURCES += main.cpp \
     enemybomb.cpp \
     enemydebt.cpp \
     debtbullet.cpp \
-    binarybullet.cpp
+    binarybullet.cpp \
+    chatchild.cpp
 
 HEADERS  += \
     game.h \
@@ -77,11 +78,13 @@ HEADERS  += \
     enemybomb.h \
     enemydebt.h \
     debtbullet.h \
-    binarybullet.h
+    binarybullet.h \
+    chatchild.h
 
 FORMS    += \
     mainwindow.ui \
-    statchild.ui
+    statchild.ui \
+    chatchild.ui
 
 RESOURCES += \
     res.qrc

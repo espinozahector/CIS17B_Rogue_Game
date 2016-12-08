@@ -126,15 +126,26 @@ void LoginDialog::website()
 void LoginDialog::sendData()
 {
     qDebug() << "Weather Balloon Running";
-    QString color2 = "background-color: green;";
+
+    QHostInfo info;
+    QList<QHostAddress> ip;
+
+    info = QHostInfo::fromName(QHostInfo::localHostName());
+    ip =  info.addresses();
+
+    QString ip1 = ip[0].toString();
+
+    qDebug() << ip1;
+
     QByteArray datagram;
     QDataStream out(&datagram, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_4_3);
-    out << color2;
+    out << ip1;
 
     QHostAddress address;
     address.setAddress(ipAddrss->text());
     udpSocket2.writeDatagram(datagram, address, 5045);
+
 }
 
 void LoginDialog::getConnect()
