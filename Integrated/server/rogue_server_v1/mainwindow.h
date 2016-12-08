@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QUdpSocket>
 #include <QHostAddress>
+#include <QDebug>
 
 namespace Ui {
 class MainWindow;
@@ -24,9 +25,11 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QList<QString> L;
+    QList<QString> M;
     QUdpSocket udpIn;
     QUdpSocket udpOut;
     QString address;
+    QString message;
 };
 
 #endif // MAINWINDOW_H

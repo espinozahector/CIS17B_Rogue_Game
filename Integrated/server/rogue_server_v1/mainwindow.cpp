@@ -48,10 +48,10 @@ void MainWindow::getConnect()
 
     QDataStream in(&datagram, QIODevice::ReadOnly);
     in.setVersion(QDataStream::Qt_4_3);
-    in >> address;
+    in >> address >> message;
 
     L.append(address);
-
+    qDebug() << message;
     sendData();
     //in >> color;
 

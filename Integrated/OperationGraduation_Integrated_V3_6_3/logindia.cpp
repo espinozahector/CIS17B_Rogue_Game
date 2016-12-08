@@ -27,6 +27,8 @@ LoginDialog::LoginDialog(QWidget *parent) : QGraphicsView(parent)
     guest = new QPushButton(tr("Play as Guest"));
     git = new QPushButton(tr("Rogue GitHub"));
     cnnct = new QPushButton(tr("Connect")); //network connection test
+    message = new QLineEdit;
+    message->setAttribute(Qt::WA_TranslucentBackground);
 
     submit->setDefault(true);
     submit->setEnabled(false);
@@ -89,6 +91,7 @@ LoginDialog::LoginDialog(QWidget *parent) : QGraphicsView(parent)
     scene->addWidget(ipLabel);  //network connection test
     scene->addWidget(ipAddrss); //network connection test
     scene->addWidget(cnnct);    //network connection test
+    scene->addWidget(message);
     scene->addWidget(cnnctd);
 
     // setting the placement of each widget
@@ -105,7 +108,8 @@ LoginDialog::LoginDialog(QWidget *parent) : QGraphicsView(parent)
     eCheck->setGeometry(95,250,250,50);
     ipLabel->setGeometry(95,300,50,20);
     ipAddrss->setGeometry(150,300,150,20);
-    cnnct->setGeometry(95,325,205,25);
+    message->setGeometry(95,325,205,25);
+    cnnct->setGeometry(95,350,205,25);
     cnnctd->setGeometry(320,325,50,20);
 
     connect(cnnct,SIGNAL(clicked(bool)),this,SLOT(sendData()));
@@ -140,7 +144,7 @@ void LoginDialog::sendData()
     QByteArray datagram;
     QDataStream out(&datagram, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_4_3);
-    out << ip1;
+    out << ip1 << message->text();
 
     QHostAddress address;
     address.setAddress(ipAddrss->text());

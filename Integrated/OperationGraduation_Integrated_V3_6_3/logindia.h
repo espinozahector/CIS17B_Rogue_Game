@@ -42,6 +42,7 @@ private:
     QPushButton *guest;
     QPushButton *git;
     QLabel *eCheck;
+    QLineEdit *message;
 
     //for testing network to another computer
     QLabel *ipLabel;        //label for ip address line edit
