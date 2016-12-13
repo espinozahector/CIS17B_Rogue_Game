@@ -67,6 +67,7 @@ class Player : public QObject, public QGraphicsPixmapItem, public Character
 
         QTimer *timer;
         QTimer *timer2;
+        QTimer *timer3;
 
         QPixmap *csMajor;
         QPixmap *binaryAttack;
@@ -120,7 +121,7 @@ class Player : public QObject, public QGraphicsPixmapItem, public Character
         //void dequip(int);
         void refreshStatCh();
 
-    void nextFrame(char direction);
+        void nextFrame(char direction);
         void restartFrame();
 
         void keyPressEvent(QKeyEvent *event);
@@ -145,6 +146,7 @@ class Player : public QObject, public QGraphicsPixmapItem, public Character
     public slots:
         void timerEvent(); //handles player movement
         void timerEvent2();
+        void checkCollision();
 };
 
 #endif // PLAYER_H

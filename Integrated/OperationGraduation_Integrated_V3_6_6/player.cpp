@@ -59,6 +59,7 @@ Player::Player(Map *base):Character("",0,1,1,1),QGraphicsPixmapItem()
 
     this->timer = new QTimer;
     this->timer2 = new QTimer;
+    this->timer3 = new QTimer;
 
     timer->setInterval(20);
     timer->start();
@@ -67,6 +68,12 @@ Player::Player(Map *base):Character("",0,1,1,1),QGraphicsPixmapItem()
     timer2->setInterval(20);
     timer2->start();
     connect(timer2, SIGNAL(timeout()), this, SLOT(timerEvent2()));
+
+    timer3->setInterval(10);
+    timer3->start();
+    connect(timer3, SIGNAL(timeout()), this, SLOT(checkCollision()));
+
+
 
     refreshStatCh();                                                //initialize statchild to player
     emit playLvlUpdate(getName(), getLvl(), getHpMx(), getExpMx()); //initialize statchild to player
@@ -833,3 +840,67 @@ void Player::setMap(Map *temp2)
 {
     temp = temp2;
 }
+
+void Player::checkCollision(){
+    //Check for collision with player
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+
+    //Goes through all colliding items
+    for (int i = 0, n = colliding_items.size(); i < n; ++i){
+
+        //If collided with essay enemy
+        if(typeid(*(colliding_items[i])) == typeid(Enemy)){
+            //qDebug() <<"Enemy collision detected.";
+
+        }
+
+        //If collided with bomb
+        if(typeid(*(colliding_items[i])) == typeid(EnemyBomb)){
+            //qDebug() <<"Enemy collision detected.";
+        }
+
+        //If collided with debt
+        if(typeid(*(colliding_items[i])) == typeid(EnemyDebt)){
+            //qDebug() <<"Enemy collision detected.";
+
+        }
+
+        //If collided with food
+        if(typeid(*(colliding_items[i])) == typeid(EnemyFood)){
+            //qDebug() <<"Enemy attack collision detected.";
+
+        }
+
+        //If collided with essay bullet
+        if(typeid(*(colliding_items[i])) == typeid(Bullet)){
+            //qDebug() <<"Enemy attack collision detected.";
+
+        }
+
+        //If colliding with explosion
+        if(typeid(*(colliding_items[i])) == typeid(BombBullet)){
+            //qDebug() <<"Enemy attack collision detected.";
+
+        }
+
+        //If collided with coin blast
+        if(typeid(*(colliding_items[i])) == typeid(Coinblast)){
+            //qDebug() <<"Enemy attack collision detected.";
+
+        }
+
+        //If collided with food slime
+        if(typeid(*(colliding_items[i])) == typeid(Foodbullet)){
+            //Reduce speed
+            velocity = 5;
+            //qDebug() <<"Enemy attack collision detected.";
+        }
+        else{
+            //Restore speed
+            velocity = 10;
+        }
+
+    }
+
+}
+

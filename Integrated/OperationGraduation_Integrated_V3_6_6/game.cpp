@@ -114,7 +114,7 @@ void Game::playerAttack(int dir)
 void Game::delScene()
 {
     //Despawn enemies
-    despawn();
+    //despawn();
 
     QList<QGraphicsItem*> items = scene->items();
 //    std::cout << items.size() << std::endl;
@@ -160,10 +160,7 @@ void Game::newScene(int x, int y)
 
     setObstacles();
 
-    //Create enemies
-    int enemy_max = rand()%6;
-    createEnemies(enemy_max);
-    spawn();
+    int enemy_max = (rand()%7)+2;
 
     if(player->isBoss2)
     {
@@ -173,6 +170,13 @@ void Game::newScene(int x, int y)
         hatch->move(7,4);
         scene->addItem(hatch);
     }
+    else if(player->getMapX() != 4 || player->getMapY() !=4 ){
+        //Create enemies
+        createEnemies(enemy_max);
+        spawn();
+    }
+
+
     int count = 0;
     for(int i = 1;i < gRows - 1; i++){
         for(int j = 1;j < gCols - 1; j++){
@@ -198,39 +202,42 @@ void Game::newScene(int x, int y)
 }
 
 void Game::createEnemies(int max){
-    //Enemy vector size
-    int enmy1=0;//Exam
-    int enmy2=0;//Food
-    int enmy3=0;//Bomb
-    int enmy4=0;//Debt
+
+    if(max > 0){
+        //Enemy vector size
+        int enmy1=0;//Exam
+        int enmy2=0;//Food
+        int enmy3=0;//Bomb
+        int enmy4=0;//Debt
 
 
-    for(int i = 0; i < max; i++){
-        int enemy_type = rand()%4;
+        for(int i = 0; i < max; i++){
+            int enemy_type = rand()%4;
 
-        switch(enemy_type){
-            case 0:
-                enmy1++;
-                break;
+            switch(enemy_type){
+                case 0:
+                    enmy1++;
+                    break;
 
-            case 1:
-                enmy2++;
-                break;
+                case 1:
+                    enmy2++;
+                    break;
 
-            case 2:
-                //enmy3++;
-                break;
+                case 2:
+                    enmy3++;
+                    break;
 
-            default:
-                enmy4++;
-                break;
+                default:
+                    enmy4++;
+                    break;
+            }
         }
-    }
 
-    enmy_Exam.resize(enmy1);
-    enmy_Food.resize(enmy2);
-    enmy_Bomb.resize(enmy3);
-    enmy_Debt.resize(enmy4);
+        enmy_Exam.resize(enmy1);
+        enmy_Food.resize(enmy2);
+        enmy_Bomb.resize(enmy3);
+        enmy_Debt.resize(enmy4);
+    }
 }
 
 void Game::spawn(){
@@ -249,6 +256,7 @@ void Game::spawn(){
             scene->addItem(enmy_Food[i]);
         }
     }
+
 
     if(enmy_Bomb.size() > 0){
         for(int i = 0 ; i < enmy_Bomb.size(); i++){
@@ -285,6 +293,7 @@ void Game::despawn(){
         }
     }
 
+    /*
     if(enmy_Bomb.size() > 0){
         for(int i = 0; i < enmy_Bomb.size(); i++){
             if(enmy_Bomb[i] != NULL){
@@ -294,7 +303,7 @@ void Game::despawn(){
                 delete enmy_Bomb[i];
             }
         }
-    }
+    }*/
 
     if(enmy_Debt.size() > 0){
         for(int i = 0; i < enmy_Debt.size(); i++){
