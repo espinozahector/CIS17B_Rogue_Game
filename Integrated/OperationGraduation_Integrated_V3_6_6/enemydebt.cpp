@@ -3,12 +3,14 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <stdlib.h>
-
 #include <cstdlib>
 #include <ctime>
-#include "debtbullet.h"
-
+#include <QList>
+#include <typeinfo>
 #include <QDebug>
+
+#include "debtbullet.h"
+#include "binarybullet.h"
 
 EnemyDebt::EnemyDebt(int level, QGraphicsItem *parent) :
     QObject(), QGraphicsPixmapItem(parent), Character()
@@ -43,19 +45,22 @@ EnemyDebt::EnemyDebt(int level, QGraphicsItem *parent) :
     QTimer *timer1 = new QTimer(this);
     //Attack timer
     QTimer *timer2 = new QTimer(this);
+    QTimer *timer3 = new QTimer(this);
 
     //Connect timers
     connect(timer1, SIGNAL(timeout()),
             this, SLOT(idle()));
     connect(timer2, SIGNAL(timeout()),
             this, SLOT(fire()));
-
+    connect(timer3, SIGNAL(timeout()),
+            this, SLOT(checkCollision()));
 
     timer1->start(200);
 
     int bullettimer = (rand()%1000)+1500;
     timer2->start(bullettimer);
 
+    timer3->start(10);
 }
 
 
@@ -125,4 +130,27 @@ void EnemyDebt::fire(){
     coin->setPos(x()+20,y()+100);
     coin->setZValue(1);
     scene()->addItem(coin);
+}
+
+void EnemyDebt::checkCollision(){
+    //Check for collision with player
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+
+    //Goes through all colliding items
+    for (int i = 0, n = colliding_items.size(); i < n; ++i){
+
+        //If collided with essay enemy
+        if(typeid(*(colliding_items[i])) == typeid(BinaryBullet)){
+            //qDebug() <<"Enemy collision detected.";
+            getHit(10);
+            scene()->removeItem(colliding_items[i]);
+            delete colliding_items[i];
+
+            if(this->isDead()){
+                scene()->removeItem(this);
+                delete this;
+                return;
+            }
+        }
+    }
 }

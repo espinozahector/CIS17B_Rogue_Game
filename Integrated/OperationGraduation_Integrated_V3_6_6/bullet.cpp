@@ -1,14 +1,11 @@
 #include "bullet.h"
 #include <QTimer>
 #include <QGraphicsScene>
-#include <QList>
-#include <typeinfo> //Enables object type info
 #include <QDebug>
 
 #include "enemy.h"
 #include "game.h"
 
-extern Game* GAME; //Includes external global constants
 
 Bullet::Bullet(QGraphicsItem *parent):
     QObject(), QGraphicsPixmapItem(parent)
@@ -109,3 +106,4 @@ void Bullet::move(){
         delete this;
     }
 }
+

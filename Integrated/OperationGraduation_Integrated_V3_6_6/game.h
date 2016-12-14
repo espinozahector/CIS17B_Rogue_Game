@@ -66,7 +66,6 @@ public slots:
     //Spawn enemy
     void createEnemies(int);
     void spawn();
-    void despawn();
 };
 
 #endif // GAME_H

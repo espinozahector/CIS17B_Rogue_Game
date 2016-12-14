@@ -38,6 +38,7 @@ public:
 public slots:
     void idle();
     void fire();
+    void checkCollision();
 };
 
 #endif // ENEMY_H

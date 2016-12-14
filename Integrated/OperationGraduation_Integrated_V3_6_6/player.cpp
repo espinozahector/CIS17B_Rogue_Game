@@ -16,7 +16,7 @@
 #include "enemybomb.h"
 #include "enemydebt.h"
 
-Player::Player(Map *base):Character("",0,1,1,1),QGraphicsPixmapItem()
+Player::Player(Map *base):Character("",100,1,1,1),QGraphicsPixmapItem()
 {
     setLvl(1);
     setExp(0);
@@ -69,11 +69,9 @@ Player::Player(Map *base):Character("",0,1,1,1),QGraphicsPixmapItem()
     timer2->start();
     connect(timer2, SIGNAL(timeout()), this, SLOT(timerEvent2()));
 
-    timer3->setInterval(10);
+    timer3->setInterval(100);
     timer3->start();
     connect(timer3, SIGNAL(timeout()), this, SLOT(checkCollision()));
-
-
 
     refreshStatCh();                                                //initialize statchild to player
     emit playLvlUpdate(getName(), getLvl(), getHpMx(), getExpMx()); //initialize statchild to player
@@ -850,43 +848,81 @@ void Player::checkCollision(){
 
         //If collided with essay enemy
         if(typeid(*(colliding_items[i])) == typeid(Enemy)){
-            //qDebug() <<"Enemy collision detected.";
+            //Player gets damaged
+            getHit(2);
+
+
+            if(this->isDead()){
+                scene()->removeItem(this);
+                delete this;
+                return;
+            }
+
 
         }
 
         //If collided with bomb
         if(typeid(*(colliding_items[i])) == typeid(EnemyBomb)){
-            //qDebug() <<"Enemy collision detected.";
+            getHit(2);
+            if(this->isDead()){
+                scene()->removeItem(this);
+                delete this;
+                return;
+            }
         }
 
         //If collided with debt
         if(typeid(*(colliding_items[i])) == typeid(EnemyDebt)){
-            //qDebug() <<"Enemy collision detected.";
+            getHit(2);
+            if(this->isDead()){
+                scene()->removeItem(this);
+                delete this;
+                return;
+            }
 
         }
 
         //If collided with food
         if(typeid(*(colliding_items[i])) == typeid(EnemyFood)){
-            //qDebug() <<"Enemy attack collision detected.";
-
+            getHit(2);
+            if(this->isDead()){
+                scene()->removeItem(this);
+                delete this;
+                return;
+            }
         }
 
         //If collided with essay bullet
         if(typeid(*(colliding_items[i])) == typeid(Bullet)){
-            //qDebug() <<"Enemy attack collision detected.";
+            getHit(20);
+            scene()->removeItem(colliding_items[i]);
+            delete colliding_items[i];
 
+            if(this->isDead()){
+                scene()->removeItem(this);
+                delete this;
+                return;
+            }
         }
 
         //If colliding with explosion
         if(typeid(*(colliding_items[i])) == typeid(BombBullet)){
-            //qDebug() <<"Enemy attack collision detected.";
-
+            getHit(5);
+            if(this->isDead()){
+                scene()->removeItem(this);
+                delete this;
+                return;
+            }
         }
 
         //If collided with coin blast
         if(typeid(*(colliding_items[i])) == typeid(Coinblast)){
-            //qDebug() <<"Enemy attack collision detected.";
-
+            getHit(5);
+            if(this->isDead()){
+                scene()->removeItem(this);
+                delete this;
+                return;
+            }
         }
 
         //If collided with food slime

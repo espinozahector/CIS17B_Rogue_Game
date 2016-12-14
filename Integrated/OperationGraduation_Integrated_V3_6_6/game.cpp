@@ -160,7 +160,7 @@ void Game::newScene(int x, int y)
 
     setObstacles();
 
-    int enemy_max = (rand()%7)+2;
+    int enemy_max = (rand()%4)+2;
 
     if(player->isBoss2)
     {
@@ -274,6 +274,7 @@ void Game::spawn(){
 
 }
 
+/*
 void Game::despawn(){
 
     if(enmy_Exam.size() > 0){
@@ -293,7 +294,7 @@ void Game::despawn(){
         }
     }
 
-    /*
+
     if(enmy_Bomb.size() > 0){
         for(int i = 0; i < enmy_Bomb.size(); i++){
             if(enmy_Bomb[i] != NULL){
@@ -303,7 +304,7 @@ void Game::despawn(){
                 delete enmy_Bomb[i];
             }
         }
-    }*/
+    }
 
     if(enmy_Debt.size() > 0){
         for(int i = 0; i < enmy_Debt.size(); i++){
@@ -315,3 +316,4 @@ void Game::despawn(){
     }
     qDebug() <<"Enemies deleted";
 }
+*/
