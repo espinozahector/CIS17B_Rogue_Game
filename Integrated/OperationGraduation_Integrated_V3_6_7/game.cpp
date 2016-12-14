@@ -171,8 +171,7 @@ void Game::newScene(int x, int y)
         hatch->move(7,4);
         scene->addItem(hatch);
     }
-    //else if(player->getMapX() != 4 || player->getMapY() !=4 )
-    else{
+    else if(player->getMapX() != 4 || player->getMapY() !=4 ){
         //Create enemies
         createEnemies(enemy_max);
         spawn();
