@@ -8,12 +8,19 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     udpIn.bind(5045);
+    udpMessage.bind(5047);
 
     connect(&udpIn, SIGNAL(readyRead()),this, SLOT(getConnect()));
+    connect(&udpMessage, SIGNAL(readyRead()),this, SLOT(getMessage()));
 
     chat = new QPlainTextEdit(this);
     chat->setReadOnly(true);
     chat->setGeometry(0,0,400,300);
+
+    time = new QTimer(this);
+
+//    connect(time, SIGNAL(timeout()), this, SLOT(checkConnection()));
+//    time->start(1000);
 }
 
 MainWindow::~MainWindow()
@@ -33,7 +40,7 @@ void MainWindow::sendData()
     QHostAddress addOut;
     for(int i = 0; i < L.size(); i++)
     {
-        if(L[i] == message) {addOut.setAddress(L[i]); break;}
+        if(L[i] == address) {addOut.setAddress(L[i]); break;}
     }
     //address.setAddress(ipAddrss->text());
     udpOut.writeDatagram(datagram, addOut, 5045);
@@ -52,7 +59,7 @@ void MainWindow::getConnect()
 
     QDataStream in(&datagram, QIODevice::ReadOnly);
     in.setVersion(QDataStream::Qt_4_3);
-    in >> address >> message;
+    in >> address;
     bool found = false;
     for(int i = 0; i < L.size(); i++)
     {
@@ -63,16 +70,14 @@ void MainWindow::getConnect()
         }
     }
 
-    if(found)
-    {
-        chat->appendPlainText(message);
-        sendMessage();
-    }
-    else
+    if(!found)
     {
         L.append(address);
+        chat->appendPlainText(address);
+        connection.append(true);
         sendData();
     }
+
     //in >> color;
 
     //cnnctd->setStyleSheet(color);
@@ -90,6 +95,45 @@ void MainWindow::sendMessage()
     for(int i = 0; i < L.size(); i++)
     {
         addOut.setAddress(L[i]);
+        udpOut.writeDatagram(datagram, addOut, 5047);
+    }
+}
+
+void MainWindow::checkConnection()
+{
+    QByteArray datagram;
+    QDataStream out(&datagram, QIODevice::WriteOnly);
+    out.setVersion(QDataStream::Qt_4_3);
+//    message = "true";
+    out << message;
+
+    QHostAddress addOut;
+    for(int i = 0; i < L.size(); i++)
+    {
+        addOut.setAddress(L[i]);
         udpOut.writeDatagram(datagram, addOut, 5045);
     }
+    for(int i = 0; i < L.size(); i++)
+    {
+
+    }
+}
+
+void MainWindow::getMessage()
+{
+    qDebug() << "Weather Station Running";
+    QByteArray datagram;
+
+    do
+    {
+        datagram.resize(udpMessage.pendingDatagramSize());
+        udpMessage.readDatagram(datagram.data(), datagram.size());
+    }while(udpMessage.hasPendingDatagrams());
+
+    QDataStream in(&datagram, QIODevice::ReadOnly);
+    in.setVersion(QDataStream::Qt_4_3);
+    in >> message;
+
+    chat->appendPlainText(message);
+    sendMessage();
 }
