@@ -36,12 +36,12 @@ public:
     QPushButton *cnnct;     //connect button for ip address
     QString getIp() {return ip1;}
     QString getServed() {return sAddress;}
+    QLineEdit *username;
 
 private:
     QGraphicsScene *scene;
     QLabel *uLabel;
     QLabel *pLabel;
-    QLineEdit *username;
     QLineEdit *password;
     QPushButton *guest;
     QPushButton *git;

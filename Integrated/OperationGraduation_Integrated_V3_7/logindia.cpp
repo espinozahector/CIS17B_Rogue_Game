@@ -48,10 +48,6 @@ LoginDialog::LoginDialog(QWidget *parent) : QGraphicsView(parent)
     //repository connection
     connect(git, SIGNAL(clicked()), this, SLOT(website()));
 
-    uLabel->setBuddy(username);
-    pLabel->setBuddy(password);
-    ipLabel->setBuddy(ipAddrss);    //network connection test
-
     password->setEchoMode(QLineEdit::Password);
 
     // set widget backgrounds transparent

@@ -24,6 +24,7 @@ public:
     void keyPressEvent(QKeyEvent *event);
     void setServ(QString data) {server = data;}
     void setIp(QString data) {ip2 = data;}
+    void setName(QString data) {username = data;}
 
 private:
     Ui::ChatChild *ui;
@@ -33,6 +34,7 @@ private:
     QUdpSocket udpIn;
     QString server;
     QString ip2;
+    QString username;
 
 
 signals:

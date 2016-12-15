@@ -39,6 +39,8 @@ private:
     RegisterChild *regchild;
     ChatChild *chat;
 
+    QString username;
+
     bool isRoom;
     bool isLogin;
     bool isStat;
@@ -61,6 +63,7 @@ public slots:
     void miniReconnect();   //connect the new minimap
     void giveFocus(); //give the player focus
     void getServer();   //get the server info from login
+    void setName();//set the username;
 };
 
 #endif // MAINWINDOW_H

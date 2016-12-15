@@ -13,8 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
     isLogin = true;
     isChat = false;
     ui->setupUi(this);
+    username = "Guest";
     lgnScrn();
-//    this->setCursor(Qt::BlankCursor); //only makes cursor visible, needs to remove it totally
+    //    this->setCursor(Qt::BlankCursor); //only makes cursor visible, needs to remove it totally
 }
 
 MainWindow::~MainWindow()
@@ -71,6 +72,8 @@ void MainWindow::lgnScrn()
     connect(loginchild->login->exit, SIGNAL(clicked(bool)), this, SLOT(close()));
     connect(loginchild->login->newPlyr, SIGNAL(clicked(bool)),
             this, SLOT(newUser()));
+    connect(loginchild->login->submit,SIGNAL(clicked(bool)),
+            this, SLOT(setName()));
     connect(loginchild->login->submit, SIGNAL(clicked(bool)),
             this, SLOT(checkUser()));
     connect(loginchild->login->cnnct, SIGNAL(clicked(bool)),this, SLOT(getServer()));
@@ -122,6 +125,7 @@ void MainWindow::crChCh()
     chat->show();
     chat->move(925,170);
 
+    chat->setName(username);
     chat->setServ(server);
     chat->setIp(ipLocal);
 }
@@ -290,4 +294,12 @@ void MainWindow::getServer()
 {
     server = loginchild->login->getServed();
     ipLocal = loginchild->login->getIp();
+}
+
+void MainWindow::setName()
+{
+    if(!loginchild->login->username->text().isEmpty())
+    {
+        username = loginchild->login->username->text();
+    }
 }

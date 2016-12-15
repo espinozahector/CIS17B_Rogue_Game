@@ -11,10 +11,12 @@ ChatChild::ChatChild(QWidget *parent) :
     ui->setupUi(this);
 
     chat = new QPlainTextEdit(this);
+    chat->setReadOnly(true);
     chat->setGeometry(0,0,350,475);
 
     message = new QLineEdit(this);
-    message->setGeometry(0,480,350,20);
+    message->setPlaceholderText(tr("Type to chat"));
+    message->setGeometry(0,475,350,30);
 
     connect(this,SIGNAL(sendMessage()),this,SLOT(send()));
 }
@@ -45,7 +47,9 @@ void ChatChild::send()
 
     QString temp = "";
 
-    if(!message->text().isEmpty()) temp = message->text();
+    temp += username;
+    temp += ": ";
+    temp += message->text();
     out << temp;
 
     QHostAddress address;
